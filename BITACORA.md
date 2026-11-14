@@ -70,6 +70,12 @@ Las fechas describen sesiones reales. Esta entrada no acredita días previos del
 - **Límite:** se genera el archivo, sin afirmar que se haya subido al SGA ni que estén cumplidas las evidencias omitidas.
 - **Tiempo:** no se midió duración total; no se declara tiempo personal del estudiante.
 
+### Ajuste de la ficha: únicamente la URL
+
+- El estudiante solicitó que el PDF tuviera solo la URL del repositorio en una línea.
+- El asistente retiró del cuerpo los datos identificativos y títulos, regeneró el PDF y comprobó una página con una única línea no vacía y un único elemento de texto.
+- Se mantiene el enlace completo y se actualizan las copias descargables. No se afirma entrega en el SGA ni se modifican fechas o autores previos.
+
 ## Plantilla para cada sesión real del estudiante
 
 - Fecha y horario (zona horaria):

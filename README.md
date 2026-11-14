@@ -9,7 +9,7 @@ Pregunta: ¿cómo afectan la replicación y el mínimo ISR a la conservación de
 ## Archivos
 
 - `informe/main.tex`, `informe/referencias.bib`, `informe/main.pdf`: informe editable y PDF.
-- `entrega-sga.tex`, [entrega-sga.pdf](entrega-sga.pdf): documento separado de una página para el SGA, con identificación y URL completa en una línea. Generarlo no equivale a entregarlo en el SGA.
+- `entrega-sga.tex`, [entrega-sga.pdf](entrega-sga.pdf): documento separado de una página que contiene únicamente la URL completa del repositorio en una sola línea, por indicación del estudiante. Generarlo no equivale a entregarlo en el SGA.
 - `compose.yaml`: tres nodos Kafka 3.9.1 con imagen fijada por SHA-256, red interna y volúmenes persistentes.
 - `scripts/experimento.py`: experimento real con verificaciones de mensajes.
 - `experimento/resultados/`: comandos, entradas, salidas, códigos y resultados de ejecuciones reales. Los JSON declaran el operador.
