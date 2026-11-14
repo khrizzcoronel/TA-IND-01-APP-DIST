@@ -65,3 +65,7 @@ La cuarta ejecución concluyó con PASS y conservó comandos, salidas, códigos 
 No se generaron capturas ni se etiquetó al asistente como estudiante. `experimento/ULTIMA-EJECUCION.md` enlaza la corrida y presenta resultados por fase. La comprobación histórica de recreación de contenedores sigue acotada a los seis tópicos de las primeras tres corridas; no se amplía su alcance sin una nueva prueba.
 
 El informe de trece páginas declara que las capturas no se incluyen por petición del estudiante. El estado académico sigue incompleto: los registros textuales no sustituyen las evidencias requeridas. La fotografía del bosquejo, el video, la lectura personal y los requisitos administrativos tampoco se dan por realizados.
+
+## Documento identificativo del SGA
+
+Se regeneró `entrega-sga.pdf` con metadatos de título y autor. `pdfinfo` confirma una página A4; `pdftotext -bbox` confirma la URL completa en un único elemento, sin exceder el ancho de la página. Se comprobó que el repositorio responde HTTP 200 y muestra etiqueta Public. La generación y el acceso al enlace no equivalen a una entrega en el SGA.

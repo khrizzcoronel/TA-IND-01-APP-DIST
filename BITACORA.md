@@ -61,6 +61,15 @@ Las fechas describen sesiones reales. Esta entrada no acredita días previos del
 - **Archivos:** comandos, log y JSON en `experimento/resultados/20261114T022648Z/`; interpretación en `experimento/ULTIMA-EJECUCION.md` y tabla actualizada del informe.
 - **Límites:** se mantiene constancia de las capturas y otras evidencias personales ausentes; los resultados textuales no se declaran sustitutos de los requisitos del docente.
 
+### Documento identificativo para el SGA
+
+- **Fecha local de la comprobación:** 2026-11-13 21:38:12 -0500 (America/Guayaquil).
+- **Operador:** asistente, por solicitud de generar el PDF con la URL del repositorio.
+- **Acción:** regeneración de `entrega-sga.pdf` con metadatos de identificación y dos pasadas de pdfLaTeX; copia descargable `TA-IND-01-Entrega-SGA.pdf` fuera del repositorio.
+- **Verificación:** una página A4; URL íntegra en un único elemento de texto y dentro de los márgenes; identificación presente; repositorio HTTP 200 con etiqueta Public.
+- **Límite:** se genera el archivo, sin afirmar que se haya subido al SGA ni que estén cumplidas las evidencias omitidas.
+- **Tiempo:** no se midió duración total; no se declara tiempo personal del estudiante.
+
 ## Plantilla para cada sesión real del estudiante
 
 - Fecha y horario (zona horaria):
