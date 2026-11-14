@@ -18,7 +18,8 @@
         "KAFKA_TRANSACTION_STATE_LOG_MIN_ISR": "2",
         "KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS": "0",
         "KAFKA_AUTO_CREATE_TOPICS_ENABLE": "false",
-        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m"
+        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m",
+        "KAFKA_LOG_DIRS": "/tmp/kafka-logs"
       },
       "healthcheck": {
         "test": [
@@ -30,7 +31,7 @@
         "retries": 18
       },
       "volumes": [
-        "kafka1-data:/tmp/kraft-combined-logs"
+        "kafka1-data:/tmp/kafka-logs"
       ]
     },
     "kafka2": {
@@ -50,7 +51,8 @@
         "KAFKA_TRANSACTION_STATE_LOG_MIN_ISR": "2",
         "KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS": "0",
         "KAFKA_AUTO_CREATE_TOPICS_ENABLE": "false",
-        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m"
+        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m",
+        "KAFKA_LOG_DIRS": "/tmp/kafka-logs"
       },
       "healthcheck": {
         "test": [
@@ -62,7 +64,7 @@
         "retries": 18
       },
       "volumes": [
-        "kafka2-data:/tmp/kraft-combined-logs"
+        "kafka2-data:/tmp/kafka-logs"
       ]
     },
     "kafka3": {
@@ -82,7 +84,8 @@
         "KAFKA_TRANSACTION_STATE_LOG_MIN_ISR": "2",
         "KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS": "0",
         "KAFKA_AUTO_CREATE_TOPICS_ENABLE": "false",
-        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m"
+        "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m",
+        "KAFKA_LOG_DIRS": "/tmp/kafka-logs"
       },
       "healthcheck": {
         "test": [
@@ -94,7 +97,7 @@
         "retries": 18
       },
       "volumes": [
-        "kafka3-data:/tmp/kraft-combined-logs"
+        "kafka3-data:/tmp/kafka-logs"
       ]
     }
   },

@@ -63,6 +63,14 @@ El experimento crea tópicos únicos; no elimina datos de sesiones anteriores. P
 
 La CLI productora puede salir con código cero aunque no entregue; el script comprueba su salida y el consumo. El resultado **no demuestra** comportamiento ante partición de red, pérdida física de discos ni una garantía universal de procesamiento exactamente una vez.
 
+Los brokers configuran explícitamente `KAFKA_LOG_DIRS=/tmp/kafka-logs`, ubicado en el volumen de cada nodo. Para comprobar conservación de los conjuntos de mensajes tras recrear los contenedores del proyecto (reinicia el laboratorio):
+
+```sh
+python3 scripts/verificar_persistencia.py --recrear
+```
+
+Conserva `experimento/persistencia.json`. No ejecutar durante una sesión de capturas.
+
 Para detener el laboratorio conservando datos:
 
 ```sh

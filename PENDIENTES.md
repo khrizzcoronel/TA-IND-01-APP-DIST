@@ -14,7 +14,8 @@
 - [ ] Revisar y explicar el texto; verificar cada argumento y declarar la asistencia real. Se trata de un borrador, no una entrega independiente terminada.
 - [ ] Registrar bitácora de cada sesión personal y cumplir tres días reales y ocho commits descriptivos propios. No se ha fabricado ese historial.
 - [ ] Grabar video de 3–5 minutos con rostro y voz explicando una captura y conclusión sin leer. Añadir enlace público/no listado al README.
-- [ ] Publicar avances completos en repositorio público y comprobar acceso sin autenticación.
+- [x] Publicar el borrador en `main`; GitHub muestra etiqueta Public.
+- [ ] Incorporar y publicar las evidencias y correcciones restantes antes del cierre.
 - [ ] Recompilar desde una copia limpia; comprobar cinco páginas de contenido y resumen 150–200 palabras.
 - [ ] Tras completar lo anterior, subir únicamente el PDF `entrega-sga.pdf` de una página al SGA. No se realizó ninguna entrega en SGA.
 
