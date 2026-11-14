@@ -1,0 +1,10 @@
+*.aux
+*.bcf
+*.blg
+*.bbl
+*.log
+*.out
+*.run.xml
+*.toc
+__pycache__/
+!experimento/resultados/**/terminal.log

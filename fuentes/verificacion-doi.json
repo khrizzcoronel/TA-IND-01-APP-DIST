@@ -1,0 +1,41 @@
+{
+  "fecha_utc": "2026-11-14T00:38:07.283325+00:00",
+  "fuentes": [
+    {
+      "clave": "raptis2023survey",
+      "doi": "10.1109/ACCESS.2023.3303810",
+      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "discrepancias": [],
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "clave": "raptis2024partitioning",
+      "doi": "10.1016/j.future.2023.12.028",
+      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "discrepancias": [],
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "clave": "henning2024scalability",
+      "doi": "10.1016/j.jss.2023.111879",
+      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "discrepancias": [],
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "clave": "vogel2024recovery",
+      "doi": "10.1145/3629104.3666040",
+      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "discrepancias": [],
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "clave": "chen2026tuning",
+      "doi": "10.1145/3777911.3800636",
+      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "discrepancias": [],
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
+  "nota": "Este cotejo automático no sustituye comprobar fascículo, nombre completo de autores, indexación, lectura y correspondencia de cada cita con el artículo."
+}

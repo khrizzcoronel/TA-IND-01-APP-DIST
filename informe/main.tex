@@ -1,0 +1,181 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern,geometry,csquotes,graphicx,booktabs,longtable,array}
+\geometry{margin=2.5cm}
+\usepackage[backend=biber,style=ieee,sorting=none,maxbibnames=99]{biblatex}
+\addbibresource{referencias.bib}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,babel}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={TA-IND-01: Kafka frente a RabbitMQ (borrador asistido)},pdfauthor={Khriz Alexander Coronel Gómez; preparación asistida por Codex}}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{TA-IND-01: Kafka frente a RabbitMQ}\fancyhead[R]{Borrador asistido por IA}\fancyfoot[C]{\thepage}
+\setlength{\parskip}{5pt}\setlength{\parindent}{0pt}\emergencystretch=3em
+\newcommand{\pendiente}[1]{\par\textbf{Pendiente obligatorio:} #1\par}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+{\Large Universidad Técnica Estatal de Quevedo\par}\vspace{5mm}
+Facultad de Ciencias de la Computación\\Carrera de Software\\Aplicaciones Distribuidas (ISR-701)\vspace{18mm}
+
+{\LARGE\bfseries Replicación, disponibilidad y recuperación en Apache Kafka\par}\vspace{5mm}
+{\Large Análisis crítico comparativo frente a RabbitMQ\par}\vspace{15mm}
+TA-IND-01 --- Informe académico individual\\Khriz Alexander Coronel Gómez\\Séptimo nivel, paralelo A\\13 de noviembre de 2026\vspace{10mm}
+
+\url{https://github.com/khrizzcoronel/TA-IND-01-APP-DIST}\vfill
+\textbf{BORRADOR DE TRABAJO ASISTIDO POR IA}\\
+No presentar como redacción ni experimentación independiente del estudiante.\\
+Faltan evidencias personales, verificación bibliográfica final y requisitos administrativos.
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section*{Resumen}
+Apache Kafka permite desacoplar productores y consumidores mediante registros particionados y replicados. Este informe examina cómo sus decisiones de replicación afectan la disponibilidad de escritura y la conservación de mensajes, y las compara con las colas de cuórum de RabbitMQ. El análisis distingue la coordinación de metadatos, la replicación de las particiones y la confirmación del procesamiento en las aplicaciones. Se plantea una prueba controlada con tres nodos, dos tópicos y requisitos distintos de réplicas sincronizadas. La validación técnica automatizada se identifica expresamente como ejecución del asistente, pendiente de repetición y explicación personal. El enfoque relaciona los cambios del conjunto de réplicas con las transparencias de distribución, los modelos de comunicación y los compromisos entre consistencia, disponibilidad y latencia. La principal conclusión técnica es que una réplica adicional solo aporta una garantía útil cuando se explicitan las condiciones de confirmación y recuperación. El montaje permite contrastar esas condiciones, pero no demuestra resistencia ante toda partición de red ni reemplaza la verificación de las fuentes o las evidencias de autoría requeridas.
+
+\section{Introducción y alcance}
+Un servicio que genera eventos no siempre puede esperar a que todos sus destinatarios estén disponibles. Una operación comercial puede necesitar auditoría, notificaciones y procesamiento posterior, con ritmos y fallos diferentes. Kafka aborda ese desacoplamiento mediante un registro distribuido: los productores escriben en tópicos, sus particiones mantienen secuencias de registros y los consumidores avanzan por posiciones u \textit{offsets}. La retención permite volver a leer eventos sin exigir que todos los consumidores los procesen simultáneamente \cite{kafka391design}.
+
+El sistema interesa por un problema preciso: determinar qué significa que una escritura esté confirmada cuando falla un nodo. La pregunta orientadora es: \emph{¿cómo influyen la replicación y el mínimo de réplicas sincronizadas en la conservación de mensajes y la disponibilidad ante la caída de un broker?} Se compara Kafka con RabbitMQ para el caso de entrega asíncrona entre servicios. Se estudian las colas de cuórum de RabbitMQ, no se generalizan sus propiedades a todos los tipos de cola.
+
+El alcance experimental es un despliegue local de Kafka 3.9.1 con tres procesos combinados de broker y controlador. No representa la escala ni el aislamiento de una plataforma productiva: los tres contenedores comparten máquina, almacenamiento subyacente y daemon de Docker. La arquitectura admite particionar el registro y distribuir líderes, pero este experimento usa una sola partición por tópico para aislar el efecto de la replicación. No se presenta una medición de capacidad o de número de usuarios en producción.
+\pendiente{Incorporar un despliegue productivo documentado de Kafka: organización usuaria, función y escala con fuente primaria. Confirmar su elección en el foro.}
+
+\subsection{Antecedentes bibliográficos por completar}
+Las fichas FORM-FB-01 seleccionan una revisión de Kafka \cite{raptis2023survey}, un estudio de particionado \cite{raptis2024partitioning} y una evaluación de escalabilidad de procesamiento de flujos \cite{henning2024scalability}. También proponen trabajos de recuperación y configuración de Kafka Streams \cite{vogel2024recovery,chen2026tuning}. Estas publicaciones son candidatas heredadas de las fichas; en esta sesión la consulta de DOI está bloqueada y no se ha completado su lectura. No se usan sus resultados cuantitativos para sustentar conclusiones. Kafka Streams es una biblioteca de procesamiento y sus resultados no deben trasladarse automáticamente a la replicación del broker.
+\pendiente{Cotejar metadatos y leer los artículos antes de mantener estas referencias en una versión de entrega. Integrar únicamente afirmaciones que puedan respaldarse con páginas o secciones verificadas.}
+
+\section{Arquitectura y comunicación}
+\subsection{Componentes y responsabilidades}
+El productor localiza el líder de cada partición a través de los metadatos del clúster y envía los registros al broker correspondiente. Los seguidores replican el registro del líder. El conjunto ISR contiene las réplicas consideradas sincronizadas. El consumidor consulta los brokers y avanza por offsets; los grupos permiten repartir particiones entre consumidores. La posición de consumo y la persistencia del evento son responsabilidades distintas: conservar un evento no acredita que un servicio externo ya haya ejecutado su efecto \cite{kafka391design}.
+
+En modo KRaft, los controladores coordinan metadatos mediante consenso. En el montaje, cada nodo también desempeña el papel de broker. Esa combinación simplifica la prueba, pero acopla dos fallos: detener un contenedor elimina un broker y un controlador. Con un nodo detenido quedan dos de tres controladores, por lo que aún puede existir mayoría. No debe confundirse ese cuórum de metadatos con el conjunto ISR de una partición.
+
+\begin{figure}[ht]\centering
+\begin{tikzpicture}[>=Latex,node distance=12mm,box/.style={draw,rounded corners,align=center,minimum width=31mm,minimum height=12mm,font=\small}]
+\node[box] (p) {Productor\\\texttt{acks=all}};
+\node[box,right=18mm of p] (b1) {Nodo 1\\broker + controlador};
+\node[box,above right=12mm and 12mm of b1] (b2) {Nodo 2\\broker + controlador};
+\node[box,below right=12mm and 12mm of b1] (b3) {Nodo 3\\broker + controlador};
+\node[box,below=27mm of p] (c) {Consumidor\\offset por partición};
+\draw[->] (p)--node[above,font=\scriptsize]{registros}(b1);
+\draw[->] (b1)--node[above,sloped,font=\scriptsize]{réplica}(b2);
+\draw[->] (b1)--node[below,sloped,font=\scriptsize]{réplica}(b3);
+\draw[<->,dashed] (b2)--node[right,font=\scriptsize]{KRaft}(b3);
+\draw[<->] (c)--node[below,sloped,font=\scriptsize]{lectura}(b1);
+\end{tikzpicture}
+\caption{Diagrama elaborado para este borrador por el asistente. El nodo 1 ilustra un líder; el líder real se obtiene del comando de descripción. El trazo KRaft es esquemático y no representa todas las conexiones.}
+\end{figure}
+
+\subsection{Modelo de comunicación}
+La topología combina clientes y brokers con cooperación entre brokers. El protocolo de Kafka transmite solicitudes y respuestas binarias sobre TCP; no es AMQP ni una API gRPC. La biblioteca productora puede agrupar envíos y devolver resultados de forma asíncrona, pero sigue existiendo una confirmación del broker con condiciones configurables. La recuperación de un envío pendiente puede requerir reintentos. En el consumidor, la consulta de registros y la confirmación del offset tampoco son equivalentes a la confirmación de escritura del productor.
+
+RabbitMQ introduce exchanges, bindings y colas para enrutar mensajes. Un \textit{publisher confirm} informa al publicador sobre la aceptación por el broker y las colas implicadas; un \textit{consumer acknowledgement} informa sobre la entrega procesada al broker. Son confirmaciones independientes. Las colas de cuórum replican usando Raft y requieren mayoría para progresar \cite{rabbitquorum,rabbitconfirms}.
+\pendiente{El estudiante debe elaborar el bosquejo inicial a mano y reconstruir o revisar el diagrama final. Este dibujo asistido no acredita esa evidencia.}
+
+\section{Análisis con los conceptos de la Unidad 1}
+\subsection{Transparencias de distribución}
+\begin{longtable}{P{.19\textwidth}P{.74\textwidth}}
+\toprule Transparencia & Alcance y límite en Kafka\\\midrule\endhead
+Acceso & La biblioteca ofrece una API uniforme para producir y consumir, aunque exige conocer tópicos, formatos y políticas de confirmación. No equivale a acceso local sin errores de red.\\
+Ubicación & Los metadatos permiten descubrir líderes a partir de brokers iniciales. El cliente sigue necesitando resolver y alcanzar las direcciones anunciadas.\\
+Migración & La reasignación mueve réplicas entre brokers. El administrador configura el movimiento y debe prever tráfico y capacidad; el costo no desaparece.\\
+Reubicación & Una elección cambia el broker líder durante la ejecución. Las bibliotecas pueden renovar metadatos y reintentar, con pausas y errores observables.\\
+Replicación & El cliente no copia cada registro a todos los seguidores. Sin embargo, el factor de replicación, ISR y confirmaciones afectan su garantía, por lo que la transparencia es parcial.\\
+Concurrencia & Hay orden por partición, no un orden global entre todas las particiones. Varios productores y consumidores requieren reglas de particionado y coordinación.\\
+Fallos & Replicación, detección y elección permiten continuar ante ciertos fallos. Los errores y demoras siguen siendo visibles si faltan réplicas o vence un plazo.\\\bottomrule
+\end{longtable}
+Estas transparencias reducen trabajo del cliente, pero no eliminan las decisiones de diseño. Una interfaz que oculta el broker físico no oculta necesariamente la latencia de la elección. El criterio crítico es si la aplicación puede reconocer resultados inciertos y recuperarse sin duplicar efectos \cite{kafka391design}.
+
+\subsection{CAP: precisar qué operación se analiza}
+CAP trata sobre el comportamiento durante particiones de comunicación. Su consistencia no es sinónimo de durabilidad: conservar bytes replicados no demuestra por sí solo linealizabilidad para cualquier operación del producto. Su disponibilidad tampoco es simplemente el porcentaje de tiempo de servicio medido en condiciones normales.
+
+Con \texttt{acks=all}, un mínimo ISR exigente y elecciones no limpias deshabilitadas, Kafka puede rechazar escrituras antes que confirmar una escritura que no alcanza las condiciones exigidas. La documentación explica que confirmar con todas las ISR no implica confirmar con todas las réplicas asignadas: el conjunto ISR puede reducirse. El mínimo ISR impone un umbral adicional y solo cumple ese propósito cuando el productor solicita la confirmación adecuada \cite{kafka391design}.
+
+La caída de un broker en nuestro montaje no es una partición de red. Permite observar la disponibilidad de escritura frente a la reducción del ISR y relacionarla con una decisión de seguridad. Para demostrar el comportamiento ante una partición sería necesario aislar enlaces de forma controlada, considerar ambos lados e identificar qué solicitudes pueden completarse. Por ello este informe no usa la prueba como demostración completa de CAP.
+
+En RabbitMQ, una cola de cuórum necesita mayoría para elegir líder y confirmar progreso. La minoría no puede ofrecer las mismas operaciones de escritura con las garantías del cuórum. Comparar este mecanismo con Kafka requiere distinguir el cuórum Raft de la cola del ISR de los datos y del cuórum KRaft de los metadatos \cite{rabbitquorum}.
+
+\subsection{PACELC: compromisos sin partición}
+Cuando la red funciona, esperar confirmaciones de réplicas incorpora dependencias de red y procesamiento al camino de la escritura. Reducir la exigencia de confirmación puede disminuir esperas, pero cambia la exposición a pérdidas. No se sigue que aumentar el mínimo ISR produzca siempre un incremento fijo de latencia: con \texttt{acks=all} y las tres réplicas ya sincronizadas, ambos tópicos esperan al conjunto ISR actual. El experimento cambia el umbral que habilita las escrituras, no mide una comparación controlada entre latencia y consistencia.
+
+PACELC ayuda a formular preguntas sobre el costo de coordinar incluso sin particiones. Aquí se utiliza como marco cualitativo, evitando adjudicar una etiqueta universal a Kafka o RabbitMQ. Para estimar percentiles de latencia harían falta calentamiento, muchas muestras, carga controlada y medición de la confirmación, excluyendo el inicio de la máquina virtual de Java de cada comando.
+
+\subsection{Detección, recuperación y límites}
+La replicación conserva copias del registro; las ISR delimitan qué seguidores pueden participar de las garantías descritas. Tras perder un líder, se elige otro elegible y los clientes actualizan metadatos. Un seguidor que vuelve debe recuperar su posición antes de contar nuevamente como sincronizado. La elección de un líder fuera del ISR puede recuperar disponibilidad a costa de perder registros; aquí se deshabilita expresamente \cite{kafka391design}.
+
+El productor del experimento activa idempotencia. Eso contribuye a evitar duplicados de reintentos dentro del alcance del protocolo, pero no convierte en exactamente una vez un cargo bancario o un correo realizado por un consumidor. La aplicación necesita coordinar sus efectos y su progreso, o deduplicar mediante identificadores. Tampoco se prueba resistencia a pérdida física de todos los discos: los contenedores comparten anfitrión.
+\pendiente{Incluir un incidente real documentado con fecha, fuente primaria, causa, impacto y recuperación. Una caída inyectada en este laboratorio no reemplaza un incidente de producción.}
+
+\section{Experimentación reproducible}
+\subsection{Hipótesis y configuración}
+Se crean dos tópicos independientes con una partición y factor de replicación tres. Ambos usan \texttt{acks=all}, idempotencia y elecciones no limpias deshabilitadas. El tópico A exige \texttt{min.insync.replicas=2}; el B exige tres. La hipótesis es que, después de perder un broker y estabilizarse el ISR en dos, A podrá confirmar nuevos registros y B los rechazará. Al recuperar el tercer nodo e ISR=3, ambos deberán admitir escrituras.
+
+El script \path{scripts/experimento.py} obtiene el líder real de A, detiene ese servicio y espera las condiciones del ISR. No presupone que el líder siempre sea el nodo 1. Inserta diez identificadores únicos por fase y verifica por consumo completo los valores y multiplicidades. El rechazo de B se comprueba buscando \texttt{NotEnoughReplicas} en la salida y comprobando que no aparezcan los mensajes de esa fase. La consola productora puede salir con código cero pese a errores de entrega: usar solo ese código produciría un falso resultado satisfactorio.
+
+\subsection{Comandos, resultados y procedencia}
+Se ejecuta \texttt{python3 scripts/experimento.py --operador asistente-IA}. Cada ejecución conserva \texttt{terminal.log}, \texttt{comandos.json} y \texttt{resumen.json} en una carpeta UTC distinta dentro de \path{experimento/resultados/}. El JSON identifica al operador y el host; no afirma que el estudiante realizó la sesión. El estudiante debe repetir y explicar esta prueba con \texttt{--operador estudiante} y obtener sus capturas sin manipularlas.
+
+\InputIfFileExists{resultados.tex}{}{\pendiente{Falta generar los resultados desde una ejecución completa.}}
+
+La comprobación evalúa esta secuencia y esta cantidad de mensajes, no una garantía matemática de ausencia de pérdidas bajo cualquier fallo. Los tiempos de los comandos incluyen arranque de clientes, espera y consumo; no se interpretan como latencias individuales. Los mensajes rechazados en B no se cuentan como perdidos porque nunca recibieron confirmación satisfactoria. La conservación solo se exige sobre mensajes que la prueba identificó como aceptados.
+\pendiente{Incorporar al menos cuatro capturas de la ejecución personal: estado sano, publicación/consumo, nodo detenido con ISR reducido y recuperación. Deben mostrar datos identificativos y fecha/hora reales.}
+
+\section{Ejemplos del entorno del estudiante}
+No se atribuyen al estudiante observaciones de uso que no ha proporcionado. El diseño bancario CGLS es un ejercicio académico, no evidencia de que el estudiante opere una plataforma bancaria real.
+\begin{enumerate}
+\item \textbf{Ejemplo 1 por documentar.} Indicar un sistema utilizado, situación concreta, fecha aproximada, comportamiento observado y concepto relacionado. Distinguir observación de hipótesis: un aviso tardío puede ilustrar desacoplamiento temporal, pero no prueba que el sistema use Kafka.
+\item \textbf{Ejemplo 2 por documentar.} Elegir otro sistema conocido de primera mano y describir un episodio verificable. Si un saldo tarda en actualizarse, explicar las hipótesis alternativas antes de afirmar un modelo interno de consistencia.
+\end{enumerate}
+\pendiente{Sustituir estos espacios por dos experiencias reales redactadas y explicadas por el estudiante.}
+
+\section{Comparación crítica con RabbitMQ}
+El problema compartido es desacoplar servicios mediante mensajes y tolerar fallos. La comparación se limita a Kafka con registros replicados y RabbitMQ con colas de cuórum; RabbitMQ también dispone de otras estructuras que requieren un análisis distinto \cite{kafka391design,rabbitquorum,rabbitconfirms}.
+\begin{longtable}{P{.19\textwidth}P{.35\textwidth}P{.35\textwidth}}
+\toprule Criterio & Kafka & RabbitMQ: colas de cuórum\\\midrule\endhead
+Comunicación & Protocolo propio sobre TCP; productores y consumidores de tópicos particionados. & Publicación mediante exchanges y entrega desde colas; confirmaciones de publicador y consumidor.\\
+Replicación y fallos & Líder y seguidores por partición; ISR y condiciones del productor. & Líder y seguidores con Raft; progreso condicionado a mayoría.\\
+Partición de red & Precisar ISR, confirmación, elección y cuórum de metadatos. & La minoría de una cola no puede progresar con las garantías de mayoría.\\
+Concurrencia y orden & Orden por partición; grupos distribuyen el consumo. No hay orden global entre particiones. & Orden de entrega condicionado por consumidores, redeliveries y otras opciones; no generalizar orden global de procesamiento.\\
+Transparencia de fallos & Bibliotecas renuevan metadatos y reintentan; hay demoras y errores visibles. & Confirmaciones y recuperación de conexión ayudan; los clientes siguen gestionando fallos y duplicados.\\
+Recuperación de consumo & Offsets permiten volver a leer mientras lo permita la retención. & Confirmar el consumo permite retirar mensajes de la cola; no equivale al registro retenido de Kafka.\\
+Costo de coordinación & Depende del conjunto ISR y de las confirmaciones configuradas. & Confirmación del cuórum; requiere coordinación para garantizar replicación.\\\bottomrule
+\end{longtable}
+
+Si varios servicios necesitan reconstruir su estado leyendo una historia retenida, el modelo de Kafka se ajusta directamente a esa necesidad. Si el requisito central es distribuir trabajo y confirmar su terminación, las colas y acknowledgements de RabbitMQ ofrecen un modelo directo. Esto no demuestra superioridad universal: capacidad, retención, ruteo, operación y requisitos de recuperación deben validarse en cada caso.
+
+No se ejecuta un benchmark de RabbitMQ en esta entrega técnica. Por ello no se concluye que uno sea más rápido ni que su recuperación dure menos. Las diferencias de mecanismo se basan en documentación; los resultados medidos pertenecen únicamente a Kafka y al montaje descrito.
+
+\section{Postura crítica}
+La fortaleza de Kafka para este problema es separar la retención de registros del ritmo de consumo y distribuirlos en particiones replicadas. Ese diseño facilita lectores independientes, pero exige decidir claves de particionado, retención y comportamiento frente a errores. Un evento confirmado no garantiza por sí solo que todos los servicios hayan terminado su trabajo.
+
+La limitación central observada en el plan experimental es que la disponibilidad de escritura depende de la política exigida. Con tres réplicas, exigir las tres evita aceptar una escritura con solo dos ISR, pero interrumpe escrituras ante una sola ausencia. Exigir dos permite continuar en ese escenario, a cambio de aceptar un nivel diferente de redundancia en el momento de confirmar. No hay un parámetro que elimine ese compromiso.
+
+Kafka no sería la primera elección de este análisis para una aplicación que únicamente necesita repartir tareas simples, sin relectura histórica, y cuyo equipo no puede operar particiones, almacenamiento y consumidores de forma responsable. Esta es una conclusión de adecuación a requisitos, no una regla basada solo en transacciones por segundo. Tampoco basta elegir RabbitMQ para eliminar duplicados o garantizar efectos externos exactamente una vez.
+
+\section{Conclusiones}
+\begin{enumerate}
+\item La garantía de escritura debe describir conjuntamente factor de replicación, ISR, confirmaciones y elección de líder. Contar nodos sin especificar esa política es insuficiente.
+\item La validación automatizada permite contrastar dos umbrales bajo un fallo controlado. Sus resultados no acreditan todavía experimentación personal ni comportamiento bajo particiones de red.
+\item Los reintentos requieren observar resultados de entrega: el código de salida de una consola no basta si la herramienta registra errores sin propagar un fallo de proceso.
+\item Kafka y RabbitMQ deben compararse para un problema común y con mecanismos específicos. Los resultados de un solo laboratorio no sustentan rankings universales de rendimiento o tolerancia.
+\end{enumerate}
+
+\section{Declaración de uso de inteligencia artificial}
+Se utilizó ChatGPT mediante el agente Codex para analizar la consigna, preparar este borrador, construir el diagrama digital, configurar Docker, redactar scripts y ejecutar una validación automatizada. El identificador exacto de versión del modelo no está disponible en la interfaz de esta sesión y no se inventa. Los resultados del asistente se distinguen de la ejecución personal pendiente.
+
+Se comprobó el comportamiento técnico con comandos reales y se consultó documentación oficial recuperada desde sus repositorios. Las fuentes académicas heredadas de FORM-FB-01 requieren verificación independiente de DOI y metadatos antes de entregar. El estudiante debe registrar sus revisiones, corregir lo que no pueda respaldar y declarar el alcance final de esta asistencia. Este borrador no debe presentarse como escritura independiente sin esa declaración y revisión.
+
+\printbibliography[title={Referencias}]
+\appendix
+\section{Bosquejo inicial a mano}
+\pendiente{Insertar fotografía original hecha por el estudiante, con su nombre y fecha visibles, y explicar las diferencias entre ese bosquejo y el diagrama final. No se ha fabricado una fotografía.}
+\section{Lectura de fuentes}
+\pendiente{Insertar al menos tres capturas de artículos efectivamente leídos, con subrayados o notas personales, número de página y correspondencia explícita con una cita del texto.}
+\section{Estado de preparación}
+Este documento contiene contenido técnico y un laboratorio funcional, pero conserva espacios obligatorios pendientes. Revisar \path{../PENDIENTES.md}, verificar las fuentes, incorporar evidencia personal y confirmar las formativas antes de presentar. El historial del repositorio debe reflejar trabajo real en fechas reales.
+\end{document}
