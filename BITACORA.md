@@ -40,6 +40,16 @@ Las fechas describen sesiones reales. Esta entrada no acredita días previos del
 - **Commit:** el estudiante autorizó ahora hacer el commit con la identidad Git configurada, sin trailers de coautoría. Se registran cambios reales; no se alteran fechas ni autores anteriores.
 - **Tiempo:** no se midió la duración total de esta revisión; no se inventa dedicación personal del estudiante.
 
+### Recuperación de las dos fuentes restantes — misma fecha local
+
+- **Operador:** asistente Codex/ChatGPT, con autorización de continuar y conservar la preferencia de commit sin coautoría.
+- **Problema:** las rutas editoriales y CNR consultadas no permitían obtener dos artículos completos.
+- **Resolución:** búsqueda en los metadatos públicos de OpenAIRE; obtención de las versiones editoriales en Zenodo, registros 8300814 y 10489464; verificación de checksums publicados y DOI del texto. Se conservan originales y atribución CC BY 4.0.
+- **Lectura asistida:** revisión de los pasajes sobre arquitectura, modelo de comunicación, restricciones, heurísticas y conclusiones. Se documentó la diferencia push/pull del survey frente a Fetch en la documentación Kafka 3.9.1, sin atribuir lectura personal al estudiante.
+- **Preparación:** inclusión condicional de los nombres de archivos de evidencias reales en LaTeX y plantilla con páginas y citas propuestas para tres capturas de artículos de revista.
+- **Pendientes personales:** las capturas, anotaciones, bosquejo, video, ejemplos propios, revisión y acciones del SGA no se declaran realizados.
+- **Tiempo:** no se midió duración total; no se inventa dedicación personal ni días adicionales.
+
 ## Plantilla para cada sesión real del estudiante
 
 - Fecha y horario (zona horaria):

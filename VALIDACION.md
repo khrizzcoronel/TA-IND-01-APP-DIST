@@ -13,7 +13,7 @@ La validación técnica y lectura de pasajes fueron realizadas por el asistente.
 - `fuentes/indexacion.json`: IEEE Access corroborada mediante su editorial; FGCS y JSS mediante las fichas SCImago, con datos Scopus. Esta última comprobación es secundaria y no equivale a entrar al catálogo de suscripción de Scopus.
 - Se consultaron los pasajes usados de tres manuscritos de autores: Henning y Hasselbring (2303.11088v2), Vogel et al. (2404.06203v3) y Chen et al. (2603.04027v1). Versión, URL y SHA-256 están en `fuentes/lecturas-consultadas.json`.
 - Los PDF de lectura se guardan fuera del repositorio, en `/workspace/lecturas-ta-ind/`; `fuentes/LECTURAS.md` permite descargarlos desde sus fuentes y localiza los pasajes.
-- La lectura integral de las dos obras de Raptis sigue pendiente. Tampoco se han creado capturas para simular lectura personal del estudiante.
+- Las dos obras de Raptis ya están disponibles íntegramente en copias editoriales de Zenodo, con licencia CC BY 4.0 y atribución en `fuentes/textos/`. Se verificaron los checksums publicados y los DOI del interior. Se consultaron los pasajes utilizados; la lectura personal del estudiante y sus capturas siguen pendientes.
 - El uso por Grab se documenta mediante el sitio oficial de Kafka. El incidente kafka-go #1358 se presenta como reporte público, con diagnóstico y mitigaciones propuestos, sin atribuir una recuperación productiva medida que el hilo no confirma.
 
 ## PDF y estructura
@@ -48,3 +48,11 @@ El estudiante publicó un nuevo entorno con red sin restricciones; Crossref y el
 El estudiante autorizó el commit con la identidad Git configurada y sin trailers de coautoría. Los autores y fechas de commits anteriores se conservan. La declaración real de uso de IA permanece en el informe y la bitácora.
 
 Continúan pendientes las evidencias originales, video, revisión personal, historial progresivo requerido y confirmaciones del SGA; ver `PENDIENTES.md`. No se realizó entrega en SGA ni se publicó de nuevo el entorno.
+
+## Recuperación de los textos y preparación de evidencias
+
+OpenAIRE identificó los depósitos de las dos obras de Raptis en Zenodo. Los PDF descargados coinciden con los checksums publicados y conservan sus DOI editoriales, autores, paginación y licencia CC BY 4.0. Las copias se incluyen sin modificaciones y con atribución. No se desactivó TLS ni se accedió mediante credenciales o proxies alternativos.
+
+El informe incorpora el papel de las restricciones de particionado y una lectura crítica del modelo push/pull del survey, contrastada con la especificación Fetch de Kafka 3.9.1. No se cambió el laboratorio ni se extrapolan resultados de otros montajes.
+
+Se preparó la inclusión condicional de cuatro capturas de ejecución, la fotografía del bosquejo y tres capturas anotadas. La compilación sin esas imágenes conserva los avisos pendientes; no se han creado evidencias para simular autoría del estudiante. La guía de lectura propone tres artículos de revista y localizaciones concretas.

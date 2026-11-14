@@ -17,6 +17,8 @@
 \setlength{\parskip}{5pt}\setlength{\parindent}{0pt}\emergencystretch=3em
 \newcommand{\pendiente}[1]{\par\textbf{Pendiente obligatorio:} #1\par}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\incluirEvidencia}[2]{\IfFileExists{../#1}{\begin{figure}[htbp]\centering\includegraphics[width=\linewidth,height=.70\textheight,keepaspectratio]{../#1}\caption{#2}\end{figure}}{}}
+
 \begin{document}
 \hypersetup{pageanchor=false}
 \begin{titlepage}\centering
@@ -30,7 +32,7 @@ TA-IND-01 --- Informe académico individual\\Khriz Alexander Coronel Gómez\\Sé
 \url{https://github.com/khrizzcoronel/TA-IND-01-APP-DIST}\vfill
 \textbf{BORRADOR DE TRABAJO ASISTIDO POR IA}\\
 No presentar como redacción ni experimentación independiente del estudiante.\\
-Faltan evidencias personales, dos lecturas integrales y requisitos administrativos.
+Faltan evidencias personales y requisitos administrativos.
 \end{titlepage}
 \hypersetup{pageanchor=true}
 
@@ -49,7 +51,11 @@ Como ejemplo de uso real, el testimonio de Grab publicado en el sitio oficial de
 \subsection{Antecedentes y alcance de la revisión}
 Se cotejaron en Crossref las cinco publicaciones heredadas de FORM-FB-01: nombres completos y orden de autores, título, revista o actas, tipo de publicación, año, volumen, fascículo y páginas o identificador. Los cinco DOI redirigen al mismo recurso editorial registrado en Crossref. Los registros de los tres artículos de revista no incluyen fascículo; el identificador 111879 de Journal of Systems and Software no se trata como un intervalo de páginas. Estos resultados y los límites del acceso editorial están en \path{fuentes/verificacion-doi.json}.
 
-Raptis y Passarella proporcionan una revisión de la literatura sobre Kafka \cite{raptis2023survey}; Raptis, Cicconetti y Passarella estudian el particionado de tópicos para aplicaciones de alta fiabilidad \cite{raptis2024partitioning}. Sus metadatos y destinos DOI se comprobaron, pero no se obtuvo texto íntegro de esas dos obras en esta sesión. No se les atribuyen resultados experimentales que no se hayan consultado.
+Se obtuvieron además las versiones editoriales completas de los dos trabajos de Raptis en depósitos Zenodo con licencia CC BY 4.0. Sus checksums coinciden con los publicados por el repositorio y los DOI del interior corresponden a las publicaciones citadas. Las copias y su atribución están en \path{fuentes/textos/}; los enlaces, hashes y pasajes consultados se registran en \path{fuentes/lecturas-consultadas.json}.
+
+Raptis y Passarella organizan la literatura en cinco áreas: algoritmos, redes, datos, sistemas ciberfísicos y seguridad \cite{raptis2023survey}. Su revisión permite situar el experimento en replicación y fiabilidad sin confundirlo con toda la plataforma de procesamiento. La página editorial 85336, página PDF 4, describe tópicos, particiones y réplicas; la conclusión está en la página 85348. Las generalizaciones del survey se contrastan con la documentación de la versión que se ejecuta.
+
+Raptis, Cicconetti y Passarella formulan el particionado con restricciones de throughput, archivos abiertos, latencia de replicación e indisponibilidad. Las secciones 3.1--3.3 están en las páginas editoriales 175--177; la sección 4.5 y la conclusión están en la 186 \cite{raptis2024partitioning}. Sus heurísticas BroMin y BroMax buscan distintas asignaciones de brokers. Los experimentos muestran que añadir recursos no mejora siempre todos los indicadores: una configuración puede beneficiar la producción y empeorar el consumo o la convergencia del rebalanceo. El análisis supone un grupo de consumidores, simplificación reconocida por los autores. Por ello no se traslada automáticamente a muchas aplicaciones o grupos ni sustituye la prueba de la configuración concreta.
 
 Se consultaron tres manuscritos de autores disponibles en arXiv, manteniendo en la bibliografía las publicaciones editoriales correspondientes. Henning y Hasselbring comparan alternativas de procesamiento de flujos y reportan escalabilidad aproximadamente lineal cuando hay recursos suficientes, sin un framework superior en todos los casos. Su abstract describe más de 740 horas de experimentos y hasta 110 instancias de microservicios \cite{henning2024scalability}. La localización es la página 1 del manuscrito arXiv 2303.11088v2. El resultado orienta la elección de métricas y recursos, pero no demuestra escalabilidad del clúster local de tres nodos.
 
@@ -84,6 +90,8 @@ En modo KRaft, los controladores coordinan metadatos mediante consenso. En el mo
 \subsection{Modelo de comunicación}
 La topología combina clientes y brokers con cooperación entre brokers. El protocolo de Kafka transmite solicitudes y respuestas binarias sobre TCP; no es AMQP ni una API gRPC. La biblioteca productora puede agrupar envíos y devolver resultados de forma asíncrona, pero sigue existiendo una confirmación del broker con condiciones configurables. La recuperación de un envío pendiente puede requerir reintentos. En el consumidor, la consulta de registros y la confirmación del offset tampoco son equivalentes a la confirmación de escritura del productor.
 
+Hay una diferencia que exige lectura crítica: el survey describe en la página 85336 consumo push y pull, mientras que la documentación de Kafka 3.9.1 especifica peticiones Fetch iniciadas por el consumidor y un diseño pull \cite{raptis2023survey,kafka391design}. Para clasificar el protocolo del laboratorio se adopta esta especificación de versión; la abstracción publicación/suscripción no implica que el broker inicie las entregas. Los seguidores también solicitan registros al líder. Las flechas del diagrama representan flujo de datos, no necesariamente quién inicia la petición de red.
+
 RabbitMQ introduce exchanges, bindings y colas para enrutar mensajes. Un \textit{publisher confirm} informa al publicador sobre la aceptación por el broker y las colas implicadas; un \textit{consumer acknowledgement} informa sobre la entrega procesada al broker. Son confirmaciones independientes. Las colas de cuórum replican usando Raft y requieren mayoría para progresar \cite{rabbitquorum,rabbitconfirms}.
 \pendiente{El estudiante debe elaborar el bosquejo inicial a mano y reconstruir o revisar el diagrama final. Este dibujo asistido no acredita esa evidencia.}
 
@@ -112,6 +120,8 @@ En RabbitMQ, una cola de cuórum necesita mayoría para elegir líder y confirma
 
 \subsection{PACELC: compromisos sin partición}
 Cuando la red funciona, esperar confirmaciones de réplicas incorpora dependencias de red y procesamiento al camino de la escritura. Reducir la exigencia de confirmación puede disminuir esperas, pero cambia la exposición a pérdidas. No se sigue que aumentar el mínimo ISR produzca siempre un incremento fijo de latencia: con \texttt{acks=all} y las tres réplicas ya sincronizadas, ambos tópicos esperan al conjunto ISR actual. El experimento cambia el umbral que habilita las escrituras, no mide una comparación controlada entre latencia y consistencia.
+
+En la configuración elegida, incluso sin partición, se prefiere esperar confirmación de las réplicas sincronizadas antes que aceptar la menor espera que permitiría confirmar solo en el líder. La preferencia observada es por confirmación replicada; no se convierte sin prueba adicional en una garantía universal de consistencia fuerte. El trabajo de particionado incluye explícitamente la latencia de replicación entre sus restricciones \cite{raptis2024partitioning}; sus límites dependen del modelo y no son percentiles medidos en este laboratorio.
 
 PACELC ayuda a formular preguntas sobre el costo de coordinar incluso sin particiones. Aquí se utiliza como marco cualitativo, evitando adjudicar una etiqueta universal a Kafka o RabbitMQ. Para estimar percentiles de latencia harían falta calentamiento, muchas muestras, carga controlada y medición de la confirmación, excluyendo el inicio de la máquina virtual de Java de cada comando.
 
@@ -143,6 +153,11 @@ Se ejecuta \texttt{python3 scripts/experimento.py --operador asistente-IA}. Cada
 
 La comprobación evalúa esta secuencia y esta cantidad de mensajes, no una garantía matemática de ausencia de pérdidas bajo cualquier fallo. Los tiempos de los comandos incluyen arranque de clientes, espera y consumo; no se interpretan como latencias individuales. Los mensajes rechazados en B no se cuentan como perdidos porque nunca recibieron confirmación satisfactoria. La conservación solo se exige sobre mensajes que la prueba identificó como aceptados.
 \pendiente{Incorporar al menos cuatro capturas de la ejecución personal: estado sano, publicación/consumo, nodo detenido con ISR reducido y recuperación. Deben mostrar datos identificativos y fecha/hora reales.}
+\incluirEvidencia{evidencia/ejecucion/01-base.png}{Estado inicial del laboratorio: comprobar tres ISR, publicación inicial y datos de identificación visibles.}
+\incluirEvidencia{evidencia/ejecucion/02-fallo.png}{Broker detenido y reducción del ISR; la captura debe proceder de la sesión personal.}
+\incluirEvidencia{evidencia/ejecucion/03-contraste.png}{Contraste de escrituras entre mínimo ISR dos y tres durante el fallo.}
+\incluirEvidencia{evidencia/ejecucion/04-recuperacion.png}{Recuperación del nodo y comprobación de los mensajes conservados.}
+
 
 \section{Ejemplos del entorno: escenarios ilustrativos}
 Los siguientes escenarios se redactaron a petición del estudiante como ejemplos generales. No se afirma que sean experiencias personales suyas ni se atribuye a los servicios una arquitectura interna no verificada. Para cumplir la evidencia de autoría, el estudiante debe vincularlos con observaciones propias reales o sustituirlos.
@@ -197,13 +212,18 @@ Kafka no sería la primera elección de este análisis para una aplicación que 
 \section{Declaración de uso de inteligencia artificial}
 Se utilizó ChatGPT mediante el agente Codex para analizar la consigna, preparar este borrador, construir el diagrama digital, configurar Docker, redactar scripts y ejecutar una validación automatizada. El identificador exacto de versión del modelo no está disponible en la interfaz de esta sesión y no se inventa. Los resultados del asistente se distinguen de la ejecución personal pendiente.
 
-Se comprobó el comportamiento técnico con comandos reales y se consultó documentación oficial recuperada desde sus repositorios. Las cinco fuentes académicas heredadas de FORM-FB-01 se cotejaron con Crossref y sus redirecciones DOI. Se consultaron tres manuscritos de autores; la lectura integral de los dos trabajos de Raptis y las evidencias personales siguen pendientes. Algunas páginas editoriales limitaron el acceso automatizado, lo que se informa por separado del cotejo bibliográfico. El estudiante debe registrar sus revisiones, corregir lo que no pueda respaldar y declarar el alcance final de esta asistencia. Este borrador no debe presentarse como escritura independiente sin esa declaración y revisión.
+Se comprobó el comportamiento técnico con comandos reales y se consultó documentación oficial recuperada desde sus repositorios. Las cinco fuentes académicas heredadas de FORM-FB-01 se cotejaron con Crossref y sus redirecciones DOI. Se consultaron pasajes de tres manuscritos de autores y dos versiones editoriales completas depositadas en Zenodo. La lectura personal y las evidencias originales del estudiante siguen pendientes. Algunas páginas editoriales limitaron el acceso automatizado, lo que se informa por separado del cotejo bibliográfico. El estudiante debe registrar sus revisiones, corregir lo que no pueda respaldar y declarar el alcance final de esta asistencia. Este borrador no debe presentarse como escritura independiente sin esa declaración y revisión.
 
 \printbibliography[title={Referencias}]
 \appendix
 \section{Bosquejo inicial a mano}
+\incluirEvidencia{evidencia/bosquejo/arquitectura-inicial.jpg}{Bosquejo original a mano: deben verse nombre y fecha reales; describir su evolución al diagrama final.}
 \pendiente{Insertar fotografía original hecha por el estudiante, con su nombre y fecha visibles, y explicar las diferencias entre ese bosquejo y el diagrama final. No se ha fabricado una fotografía.}
 \section{Lectura de fuentes}
+\incluirEvidencia{evidencia/lecturas/01-raptis2023.png}{Anotación personal del pasaje de Raptis y Passarella, p.~85336 \cite{raptis2023survey}; relacionarlo con la discusión del modelo de consumo.}
+\incluirEvidencia{evidencia/lecturas/02-raptis2024.png}{Anotación personal de la sección 3.1, p.~176 \cite{raptis2024partitioning}; relacionarla con latencia de replicación e indisponibilidad.}
+\incluirEvidencia{evidencia/lecturas/03-henning2024.png}{Anotación personal del abstract de Henning y Hasselbring, página 1 del manuscrito 2303.11088v2 \cite{henning2024scalability}; distinguir su evaluación del laboratorio propio.}
+
 \pendiente{Insertar al menos tres capturas de artículos efectivamente leídos, con subrayados o notas personales, número de página y correspondencia explícita con una cita del texto.}
 \section{Estado de preparación}
 Este documento contiene contenido técnico y un laboratorio funcional, pero conserva espacios obligatorios pendientes. Revisar \path{../PENDIENTES.md}, verificar las fuentes, incorporar evidencia personal y confirmar las formativas antes de presentar. El historial del repositorio debe reflejar trabajo real en fechas reales.

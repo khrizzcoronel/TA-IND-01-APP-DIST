@@ -18,12 +18,16 @@ Los PDF se conservan fuera del repositorio, en `/workspace/lecturas-ta-ind/`. Lo
 
 `lecturas-consultadas.json` registra las versiones, DOI editoriales y hashes de los archivos descargados. El asistente revisó los pasajes que respaldan el informe; no se atribuye al estudiante la lectura ni se afirma una revisión exhaustiva de cada resultado del artículo.
 
-## Dos textos íntegros pendientes
+## Dos versiones editoriales recuperadas en Zenodo
 
-- Raptis y Passarella, IEEE Access 2023, DOI 10.1109/ACCESS.2023.3303810.
-- Raptis, Cicconetti y Passarella, FGCS 2024, DOI 10.1016/j.future.2023.12.028.
+| Artículo | Copia disponible | Pasajes consultados y límites |
+|---|---|---|
+| Raptis y Passarella, IEEE Access 2023, DOI 10.1109/ACCESS.2023.3303810 | [PDF](textos/raptis2023.pdf), [depósito](https://zenodo.org/records/8300814) | Abstract p. 85333, arquitectura y modelo de consumo p. 85336, conclusión p. 85348. La taxonomía organiza el tema; para el protocolo concreto se contrasta la afirmación push/pull con Fetch en la documentación 3.9.1. |
+| Raptis, Cicconetti y Passarella, FGCS 2024, DOI 10.1016/j.future.2023.12.028 | [PDF](textos/raptis2024.pdf), [depósito](https://zenodo.org/records/10489464) | Secciones 2.1–3.3, pp. 174–177; mensajes de evaluación y conclusión p. 186. Distinguir supuestos, simulación, prototipo y aplicación real. El modelo supone un grupo de consumidores. |
 
-Los datos editoriales y las redirecciones DOI se comprobaron. Las copias CNR y el PDF IEEE devolvieron limitaciones de acceso. No se han fabricado notas de lectura ni resultados de esos trabajos.
+Las copias son originales sin anotaciones del asistente. Coinciden con los checksums MD5 publicados por Zenodo y se registró además su SHA-256; los DOI del texto coinciden con los editoriales. Ambos trabajos tienen licencia CC BY 4.0, con atribución y procedencia conservadas en `textos/README.md`.
+
+El asistente consultó los pasajes que fundamentan el informe. Obtener el texto íntegro no acredita que el estudiante lo haya leído ni sustituye su lectura y anotación personal.
 
 ## Indexación
 
@@ -31,4 +35,4 @@ Los datos editoriales y las redirecciones DOI se comprobaron. Las copias CNR y e
 
 ## Evidencia personal que debe producir el estudiante
 
-Leer tres artículos citados, escoger pasajes vinculados a afirmaciones del informe, anotarlos y obtener capturas propias donde se identifique la página. Las tres versiones abiertas de arriba permiten preparar esas lecturas; no se han creado capturas para simular que el estudiante ya las hizo.
+Leer tres artículos citados, escoger pasajes vinculados a afirmaciones del informe, anotarlos y obtener capturas propias donde se identifique la página. Las cinco copias identificadas arriba permiten preparar esas lecturas; no se han creado capturas para simular que el estudiante ya las hizo.

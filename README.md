@@ -13,7 +13,7 @@ Pregunta: ¿cómo afectan la replicación y el mínimo ISR a la conservación de
 - `compose.yaml`: tres nodos Kafka 3.9.1 con imagen fijada por SHA-256, red interna y volúmenes persistentes.
 - `scripts/experimento.py`: experimento real con verificaciones de mensajes.
 - `experimento/resultados/`: comandos, entradas, salidas, códigos y resultados de ejecuciones reales. Los JSON declaran el operador.
-- `fuentes/`: documentación técnica consultada, procedencia y estado de verificación de DOI.
+- `fuentes/`: documentación técnica, cotejo de DOI, guía de lectura y dos artículos originales CC BY 4.0 en `fuentes/textos/`.
 - `evidencia/`: instrucciones para incorporar evidencias originales. No contiene capturas personales fabricadas.
 - `BITACORA.md`: registro honesto de la sesión asistida y plantilla para las sesiones personales.
 - `PENDIENTES.md`: requisitos que impiden considerar el trabajo listo para entrega.
@@ -88,7 +88,7 @@ python3 scripts/verificar_fuentes.py
 
 Guarda `fuentes/verificacion-doi.json`. El código 0 indica que los metadatos completos y la redirección inicial de cada DOI coinciden con el recurso editorial registrado en Crossref. Un error de consulta o una discrepancia impide ese resultado. El acceso posterior a la editorial se registra por separado: un 202 o 403 no acredita lectura integral ni invalida por sí solo un registro bibliográfico coincidente.
 
-**Estado actual:** cinco referencias cotejadas sin discrepancias; las cinco redirecciones DOI coinciden con sus registros. `fuentes/indexacion.json` corrobora las tres revistas mediante IEEE y SCImago/Scopus. `fuentes/LECTURAS.md` identifica los tres manuscritos abiertos consultados y sus páginas. Continúan pendientes las dos lecturas integrales de Raptis y la lectura personal del estudiante.
+**Estado actual:** cinco referencias cotejadas sin discrepancias; las cinco redirecciones DOI coinciden con sus registros. `fuentes/indexacion.json` corrobora las tres revistas mediante IEEE y SCImago/Scopus. `fuentes/LECTURAS.md` identifica los tres manuscritos abiertos consultados y sus páginas. Se obtuvieron también las dos versiones editoriales completas de Raptis en Zenodo, con licencia CC BY 4.0 y checksums coincidentes; se incluyen con atribución en `fuentes/textos/`. Sigue pendiente la lectura personal del estudiante.
 
 Las fuentes complementarias incluyen el testimonio de uso de Grab publicado por Apache Kafka y el reporte público kafka-go #1358, con límites y cronología explícitos. No reemplazan los tres artículos de revista requeridos.
 
@@ -119,3 +119,13 @@ Guarda `revision-entrega.json`. Comprueba página y URL del PDF SGA, extensión 
 ## Estado actual de red
 
 El estudiante publicó un nuevo entorno con acceso a Internet sin restricciones. Crossref y el resolvedor DOI están accesibles. Algunas editoriales y repositorios todavía limitan solicitudes automatizadas, y sus respuestas quedan documentadas por fuente. No se desactivaron TLS ni controles de integridad. Los cambios actuales del trabajo no requieren volver a publicar el entorno.
+
+## Incorporar las evidencias reales al PDF
+
+El LaTeX ya incluye automáticamente estos archivos cuando existen:
+
+- `evidencia/ejecucion/01-base.png`, `02-fallo.png`, `03-contraste.png`, `04-recuperacion.png`.
+- `evidencia/bosquejo/arquitectura-inicial.jpg`.
+- `evidencia/lecturas/01-raptis2023.png`, `02-raptis2024.png`, `03-henning2024.png`.
+
+Sigue `evidencia/lecturas/PLANTILLA.md` para las páginas y citas propuestas. Después de añadir originales, ejecuta `./scripts/compilar.sh` y revisa orden, legibilidad, pies e interpretación. Ajusta los pies si eliges otro pasaje. Las advertencias de pendiente se retiran solo al comprobar el requisito completo; añadir archivos no verifica automáticamente su autoría ni cumple el video o el historial.

@@ -1,5 +1,5 @@
 {
-  "fecha_utc": "2026-11-14T01:52:13.882221+00:00",
+  "fecha_utc": "2026-11-14T02:11:30.994622+00:00",
   "estado": "NO_LISTO_PARA_ENTREGA",
   "advertencia": "Este control no acredita autoría, lectura, indexación, acceso público actual, video, permisos ni entrega en SGA. No sustituye la revisión del docente.",
   "comprobaciones": [
@@ -131,7 +131,7 @@
       "comprobacion": "Historial progresivo",
       "estado": "PENDIENTE",
       "detalle": {
-        "commits_totales": 2,
+        "commits_totales": 3,
         "días_locales": [
           "2026-11-13"
         ],
@@ -146,7 +146,6 @@
         "Confirmar entrega de FORM-FB-01 en SGA. Se observan los archivos en el repositorio compartido; eso no prueba entrega formal.",
         "Localizar y confirmar FORM-AC-01. El PDF aportado describe un diseño bancario, no acredita un análisis de incidente real. Solo el docente puede confirmar una equivalencia.",
         "Confirmar plazo y zona horaria en SGA: la consigna dice 15 de noviembre de 2026, 23:55.",
-        "Completar la lectura integral de los dos artículos de Raptis; no se obtuvo su texto completo. Las páginas editoriales y repositorios todavía presentan limitaciones automatizadas de acceso.",
         "Leer las fuentes y hacer tres capturas originales anotadas, con página y relación explícita con citas del texto.",
         "Hacer y fotografiar un bosquejo personal a mano con nombre y fecha. Revisar/redibujar el diagrama digital; el actual fue preparado por IA.",
         "Ejecutar personalmente el laboratorio, conservar resultados identificados y obtener cuatro capturas originales. Las corridas ya incluidas son del asistente.",

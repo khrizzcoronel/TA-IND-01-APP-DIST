@@ -5,7 +5,7 @@
 - [ ] Localizar y confirmar FORM-AC-01. El PDF aportado describe un diseño bancario, no acredita un análisis de incidente real. Solo el docente puede confirmar una equivalencia.
 - [ ] Confirmar plazo y zona horaria en SGA: la consigna dice 15 de noviembre de 2026, 23:55.
 - [x] Verificar los cinco DOI: metadatos completos y destinos coinciden con Crossref. Indexación corroborada de IEEE Access por editorial y de las dos revistas Elsevier por SCImago/Scopus; ver JSON de fuentes.
-- [ ] Completar la lectura integral de los dos artículos de Raptis; no se obtuvo su texto completo. Las páginas editoriales y repositorios todavía presentan limitaciones automatizadas de acceso.
+- [x] Obtener los dos artículos completos de Raptis y consultar los pasajes usados: copias editoriales CC BY 4.0 en Zenodo, con checksums coincidentes. Se incluyen en fuentes/textos/; no se atribuye lectura personal al estudiante.
 - [ ] Leer las fuentes y hacer tres capturas originales anotadas, con página y relación explícita con citas del texto.
 - [x] Incorporar uso de Kafka por Grab y escala TB/hour mediante su testimonio alojado en el sitio oficial de Apache Kafka; se atribuye la cifra y se indica su alcance.
 - [x] Analizar el fallo real reportado en kafka-go, issue 1358: cronología, versiones, impacto declarado en producción, diagnóstico y mitigaciones propuestas. Se deja explícito que no hay recuperación medida confirmada ni post mortem corporativo.
