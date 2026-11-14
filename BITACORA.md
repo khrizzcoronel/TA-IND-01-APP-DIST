@@ -50,6 +50,17 @@ Las fechas describen sesiones reales. Esta entrada no acredita días previos del
 - **Pendientes personales:** las capturas, anotaciones, bosquejo, video, ejemplos propios, revisión y acciones del SGA no se declaran realizados.
 - **Tiempo:** no se midió duración total; no se inventa dedicación personal ni días adicionales.
 
+### Ejecución delegada sin capturas — misma fecha local
+
+- **Instrucción:** el estudiante solicitó hacer el trabajo sin capturas de pantalla.
+- **Operador real:** asistente Codex/ChatGPT; no se registra como sesión personal del estudiante.
+- **Corrida:** `20261114T022648Z`, iniciada a las 21:26:48 de la fecha local 2026-11-13 en America/Guayaquil.
+- **Acciones:** inicio de los tres servicios del entorno restaurado, publicación, caída de `kafka3`, contraste ISR2/ISR3, recuperación y comparación de todos los mensajes aceptados.
+- **Resultado:** PASS; 30 mensajes en ISR2, 20 en ISR3, rechazo NotEnoughReplicasException durante el fallo y retorno a tres ISR. No se crearon capturas.
+- **Tiempo instrumentado:** 138.101 segundos sumados de comandos; no equivale a dedicación personal del estudiante ni a latencia de mensajes.
+- **Archivos:** comandos, log y JSON en `experimento/resultados/20261114T022648Z/`; interpretación en `experimento/ULTIMA-EJECUCION.md` y tabla actualizada del informe.
+- **Límites:** se mantiene constancia de las capturas y otras evidencias personales ausentes; los resultados textuales no se declaran sustitutos de los requisitos del docente.
+
 ## Plantilla para cada sesión real del estudiante
 
 - Fecha y horario (zona horaria):

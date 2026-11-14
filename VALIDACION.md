@@ -18,7 +18,7 @@ La validación técnica y lectura de pasajes fueron realizadas por el asistente.
 
 ## PDF y estructura
 
-- `informe/main.pdf`: doce páginas, con más de cinco páginas de contenido antes de las referencias y sin contar carátula ni anexos.
+- `informe/main.pdf`: trece páginas, con más de cinco páginas de contenido antes de las referencias y sin contar carátula ni anexos.
 - Resumen: 170 palabras por separación de espacios.
 - Bibliografía: `biblatex`, estilo IEEE y backend Biber.
 - Compilación limpia final: sin referencias indefinidas, errores fatales ni desbordamientos de línea en el log de la última pasada.
@@ -27,13 +27,14 @@ La validación técnica y lectura de pasajes fueron realizadas por el asistente.
 
 ## Experimento
 
-Resultados conservados de las ejecuciones automatizadas previas; no se repitieron porque el laboratorio no cambió en la revisión bibliográfica.
+Se conservan tres corridas anteriores y una cuarta ejecución delegada sin capturas desde el entorno publicado restaurado, por solicitud expresa del estudiante.
 
 | Corrida UTC | Resultado | Mensajes ISR2 | Mensajes ISR3 | Broker detenido |
 |---|---|---|---|---|
 | `20261114T003313Z` | PASS | 30 | 20 | kafka3 |
 | `20261114T003807Z` | PASS | 30 | 20 | kafka1 |
 | `20261114T004432Z` | PASS | 30 | 20 | kafka2 |
+| `20261114T022648Z` | PASS | 30 | 20 | kafka3 |
 
 En cada corrida se compararon valores y multiplicidades de todos los mensajes; se observó `NotEnoughReplicasException` con mínimo ISR3 durante el fallo y se restauró ISR=3. Los identificadores de tópico son distintos y los comandos, entradas y salidas están archivados.
 
@@ -56,3 +57,11 @@ OpenAIRE identificó los depósitos de las dos obras de Raptis en Zenodo. Los PD
 El informe incorpora el papel de las restricciones de particionado y una lectura crítica del modelo push/pull del survey, contrastada con la especificación Fetch de Kafka 3.9.1. No se cambió el laboratorio ni se extrapolan resultados de otros montajes.
 
 Se preparó la inclusión condicional de cuatro capturas de ejecución, la fotografía del bosquejo y tres capturas anotadas. La compilación sin esas imágenes conserva los avisos pendientes; no se han creado evidencias para simular autoría del estudiante. La guía de lectura propone tres artículos de revista y localizaciones concretas.
+
+## Versión sin capturas solicitada por el estudiante
+
+La cuarta ejecución concluyó con PASS y conservó comandos, salidas, códigos y JSON originales. Se aceptaron diez registros por fase en ISR2; ISR3 rechazó los intentos durante el fallo y conservó los veinte aceptados antes y después. Se esperó recuperación a tres ISR y se compararon valores y multiplicidades.
+
+No se generaron capturas ni se etiquetó al asistente como estudiante. `experimento/ULTIMA-EJECUCION.md` enlaza la corrida y presenta resultados por fase. La comprobación histórica de recreación de contenedores sigue acotada a los seis tópicos de las primeras tres corridas; no se amplía su alcance sin una nueva prueba.
+
+El informe de trece páginas declara que las capturas no se incluyen por petición del estudiante. El estado académico sigue incompleto: los registros textuales no sustituyen las evidencias requeridas. La fotografía del bosquejo, el video, la lectura personal y los requisitos administrativos tampoco se dan por realizados.

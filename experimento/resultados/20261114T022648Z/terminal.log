@@ -1,0 +1,253 @@
+$ docker compose up -d --wait --wait-timeout 180
+ Container ta-ind-kafka-kafka2-1  Starting
+ Container ta-ind-kafka-kafka3-1  Starting
+ Container ta-ind-kafka-kafka1-1  Starting
+ Container ta-ind-kafka-kafka2-1  Started
+ Container ta-ind-kafka-kafka3-1  Started
+ Container ta-ind-kafka-kafka1-1  Started
+ Container ta-ind-kafka-kafka3-1  Waiting
+ Container ta-ind-kafka-kafka1-1  Waiting
+ Container ta-ind-kafka-kafka2-1  Waiting
+ Container ta-ind-kafka-kafka1-1  Healthy
+ Container ta-ind-kafka-kafka2-1  Healthy
+ Container ta-ind-kafka-kafka3-1  Healthy
+
+[exit=0; segundos=29.526]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --create --topic ta-isr2-20261114t022648z --partitions 1 --replication-factor 3 --config min.insync.replicas=2 --config unclean.leader.election.enable=false
+Created topic ta-isr2-20261114t022648z.
+
+[exit=0; segundos=1.775]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=1.838]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr2-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|base|00
+20261114T022648Z|base|01
+20261114T022648Z|base|02
+20261114T022648Z|base|03
+20261114T022648Z|base|04
+20261114T022648Z|base|05
+20261114T022648Z|base|06
+20261114T022648Z|base|07
+20261114T022648Z|base|08
+20261114T022648Z|base|09
+
+
+[exit=0; segundos=2.272]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --create --topic ta-isr3-20261114t022648z --partitions 1 --replication-factor 3 --config min.insync.replicas=3 --config unclean.leader.election.enable=false
+Created topic ta-isr3-20261114t022648z.
+
+[exit=0; segundos=1.745]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr3-20261114t022648z
+Topic: ta-isr3-20261114t022648z	TopicId: VPcp8oo5TSyIMynr8LFiqQ	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=3,unclean.leader.election.enable=false
+	Topic: ta-isr3-20261114t022648z	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=1.795]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr3-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|base|00
+20261114T022648Z|base|01
+20261114T022648Z|base|02
+20261114T022648Z|base|03
+20261114T022648Z|base|04
+20261114T022648Z|base|05
+20261114T022648Z|base|06
+20261114T022648Z|base|07
+20261114T022648Z|base|08
+20261114T022648Z|base|09
+
+
+[exit=0; segundos=3.989]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=1.618]
+$ docker compose stop kafka3
+ Container ta-ind-kafka-kafka3-1  Stopping
+ Container ta-ind-kafka-kafka3-1  Stopped
+
+[exit=0; segundos=3.069]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=10.325]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr3-20261114t022648z
+Topic: ta-isr3-20261114t022648z	TopicId: VPcp8oo5TSyIMynr8LFiqQ	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=3,unclean.leader.election.enable=false
+	Topic: ta-isr3-20261114t022648z	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=12.299]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr2-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|durante-fallo|00
+20261114T022648Z|durante-fallo|01
+20261114T022648Z|durante-fallo|02
+20261114T022648Z|durante-fallo|03
+20261114T022648Z|durante-fallo|04
+20261114T022648Z|durante-fallo|05
+20261114T022648Z|durante-fallo|06
+20261114T022648Z|durante-fallo|07
+20261114T022648Z|durante-fallo|08
+20261114T022648Z|durante-fallo|09
+
+
+[exit=0; segundos=1.894]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr3-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|durante-fallo|00
+20261114T022648Z|durante-fallo|01
+20261114T022648Z|durante-fallo|02
+20261114T022648Z|durante-fallo|03
+20261114T022648Z|durante-fallo|04
+20261114T022648Z|durante-fallo|05
+20261114T022648Z|durante-fallo|06
+20261114T022648Z|durante-fallo|07
+20261114T022648Z|durante-fallo|08
+20261114T022648Z|durante-fallo|09
+
+[2026-11-14 02:28:02,263] WARN [Producer clientId=console-producer] Got error produce response with correlation id 5 on topic-partition ta-isr3-20261114t022648z-0, retrying (2 attempts left). Error: NOT_ENOUGH_REPLICAS (org.apache.kafka.clients.producer.internals.Sender)
+[2026-11-14 02:28:02,366] WARN [Producer clientId=console-producer] Got error produce response with correlation id 6 on topic-partition ta-isr3-20261114t022648z-0, retrying (1 attempts left). Error: NOT_ENOUGH_REPLICAS (org.apache.kafka.clients.producer.internals.Sender)
+[2026-11-14 02:28:02,574] WARN [Producer clientId=console-producer] Got error produce response with correlation id 7 on topic-partition ta-isr3-20261114t022648z-0, retrying (0 attempts left). Error: NOT_ENOUGH_REPLICAS (org.apache.kafka.clients.producer.internals.Sender)
+[2026-11-14 02:28:03,058] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,059] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,060] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,060] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+[2026-11-14 02:28:03,060] ERROR Error when sending message to topic ta-isr3-20261114t022648z with key: null, value: 33 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.NotEnoughReplicasException: Messages are rejected since there are fewer in-sync replicas than required.
+
+[exit=0; segundos=2.686]
+$ docker compose start kafka3
+ Container ta-ind-kafka-kafka3-1  Starting
+ Container ta-ind-kafka-kafka3-1  Started
+
+[exit=0; segundos=0.243]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=2.613]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 1,2	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=2.178]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr2-20261114t022648z
+Topic: ta-isr2-20261114t022648z	TopicId: EVdFazhRQ2eE_Cerve6w2g	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: ta-isr2-20261114t022648z	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 1,2,3	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=1.939]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr2-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|recuperacion|00
+20261114T022648Z|recuperacion|01
+20261114T022648Z|recuperacion|02
+20261114T022648Z|recuperacion|03
+20261114T022648Z|recuperacion|04
+20261114T022648Z|recuperacion|05
+20261114T022648Z|recuperacion|06
+20261114T022648Z|recuperacion|07
+20261114T022648Z|recuperacion|08
+20261114T022648Z|recuperacion|09
+
+
+[exit=0; segundos=2.063]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka1:9092 --topic ta-isr2-20261114t022648z --from-beginning --timeout-ms 15000
+20261114T022648Z|base|00
+20261114T022648Z|base|01
+20261114T022648Z|base|02
+20261114T022648Z|base|03
+20261114T022648Z|base|04
+20261114T022648Z|base|05
+20261114T022648Z|base|06
+20261114T022648Z|base|07
+20261114T022648Z|base|08
+20261114T022648Z|base|09
+20261114T022648Z|durante-fallo|00
+20261114T022648Z|durante-fallo|01
+20261114T022648Z|durante-fallo|02
+20261114T022648Z|durante-fallo|03
+20261114T022648Z|durante-fallo|04
+20261114T022648Z|durante-fallo|05
+20261114T022648Z|durante-fallo|06
+20261114T022648Z|durante-fallo|07
+20261114T022648Z|durante-fallo|08
+20261114T022648Z|durante-fallo|09
+20261114T022648Z|recuperacion|00
+20261114T022648Z|recuperacion|01
+20261114T022648Z|recuperacion|02
+20261114T022648Z|recuperacion|03
+20261114T022648Z|recuperacion|04
+20261114T022648Z|recuperacion|05
+20261114T022648Z|recuperacion|06
+20261114T022648Z|recuperacion|07
+20261114T022648Z|recuperacion|08
+20261114T022648Z|recuperacion|09
+[2026-11-14 02:28:50,655] ERROR Error processing message, terminating consumer process:  (org.apache.kafka.tools.consumer.ConsoleConsumer)
+org.apache.kafka.common.errors.TimeoutException
+Processed a total of 30 messages
+
+[exit=0; segundos=32.819]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --describe --topic ta-isr3-20261114t022648z
+Topic: ta-isr3-20261114t022648z	TopicId: VPcp8oo5TSyIMynr8LFiqQ	PartitionCount: 1	ReplicationFactor: 3	Configs: min.insync.replicas=3,unclean.leader.election.enable=false
+	Topic: ta-isr3-20261114t022648z	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+
+[exit=0; segundos=1.665]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka1:9092 --topic ta-isr3-20261114t022648z --producer-property acks=all --producer-property enable.idempotence=true --producer-property delivery.timeout.ms=10000 --producer-property request.timeout.ms=5000 --producer-property max.block.ms=10000
+ENTRADA:
+20261114T022648Z|recuperacion|00
+20261114T022648Z|recuperacion|01
+20261114T022648Z|recuperacion|02
+20261114T022648Z|recuperacion|03
+20261114T022648Z|recuperacion|04
+20261114T022648Z|recuperacion|05
+20261114T022648Z|recuperacion|06
+20261114T022648Z|recuperacion|07
+20261114T022648Z|recuperacion|08
+20261114T022648Z|recuperacion|09
+
+
+[exit=0; segundos=2.333]
+$ docker compose exec -T kafka1 /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka1:9092 --topic ta-isr3-20261114t022648z --from-beginning --timeout-ms 15000
+20261114T022648Z|base|00
+20261114T022648Z|base|01
+20261114T022648Z|base|02
+20261114T022648Z|base|03
+20261114T022648Z|base|04
+20261114T022648Z|base|05
+20261114T022648Z|base|06
+20261114T022648Z|base|07
+20261114T022648Z|base|08
+20261114T022648Z|base|09
+20261114T022648Z|recuperacion|00
+20261114T022648Z|recuperacion|01
+20261114T022648Z|recuperacion|02
+20261114T022648Z|recuperacion|03
+20261114T022648Z|recuperacion|04
+20261114T022648Z|recuperacion|05
+20261114T022648Z|recuperacion|06
+20261114T022648Z|recuperacion|07
+20261114T022648Z|recuperacion|08
+20261114T022648Z|recuperacion|09
+[2026-11-14 02:29:12,230] ERROR Error processing message, terminating consumer process:  (org.apache.kafka.tools.consumer.ConsoleConsumer)
+org.apache.kafka.common.errors.TimeoutException
+Processed a total of 20 messages
+
+[exit=0; segundos=17.417]

@@ -1,12 +1,15 @@
-\textbf{Validaciones automatizadas del asistente: tres corridas PASS.} En cada corrida se aceptaron diez mensajes por fase en el tópico ISR2 y se rechazó la fase de fallo en ISR3 con \texttt{NotEnoughReplicasException}. Los mensajes aceptados se comprobaron por valor y multiplicidad.
+\textbf{Validaciones automatizadas del asistente: cuatro corridas PASS.} En cada corrida se aceptaron diez mensajes por fase en el tópico ISR2 y se rechazó la fase de fallo en ISR3 con \texttt{NotEnoughReplicasException}. Los mensajes aceptados se comprobaron por valor y multiplicidad.
 \begin{center}
 \begin{tabular}{lrrl}\toprule
 Corrida UTC & Mensajes ISR2 & Mensajes ISR3 & Nodo detenido\\\midrule
 \texttt{20261114T003313Z} & 30 & 20 & kafka3 \\
 \texttt{20261114T003807Z} & 30 & 20 & kafka1 \\
 \texttt{20261114T004432Z} & 30 & 20 & kafka2 \\
+\texttt{20261114T022648Z} & 30 & 20 & kafka3 \\
 \bottomrule\end{tabular}
 \end{center}
-ISR2 conservó 30 mensajes y el tópico ISR3 los 20 aceptados antes y después del fallo. La comprobación no considera perdidos los registros explícitamente rechazados. Además, después de corregir el montaje del directorio real de datos, se recrearon los tres contenedores y se verificaron nuevamente los conjuntos de los seis tópicos anteriores: todos PASS. El archivo \path{experimento/persistencia.json} registra esa comprobación adicional.
+ISR2 conservó 30 mensajes y el tópico ISR3 los 20 aceptados antes y después del fallo. La comprobación no considera perdidos los registros explícitamente rechazados. La cuarta corrida se ejecutó sin pausas ni capturas, a petición del estudiante, desde el entorno publicado restaurado. Su resumen textual y enlaces a los registros están en \path{experimento/ULTIMA-EJECUCION.md}.
 
-Las dos primeras corridas verificaron parada y arranque sobre la capa del contenedor; la tercera utilizó el volumen corregido. La comprobación de recreación acredita el montaje persistente. Son ejecuciones reales del asistente, pendientes de repetición y explicación personal del estudiante.
+Después de corregir el montaje del directorio de datos, una comprobación anterior recreó los tres contenedores y verificó los conjuntos de los seis tópicos de las primeras tres corridas: todos PASS. El archivo \path{experimento/persistencia.json} conserva el alcance y la fecha de esa comprobación; no incluye la cuarta corrida.
+
+Las dos primeras corridas verificaron parada y arranque sobre la capa del contenedor; la tercera y la cuarta utilizaron el volumen corregido. Son ejecuciones reales del asistente, no evidencia de ejecución personal del estudiante. En esta versión no se aportan capturas de pantalla y los archivos textuales no se presentan como sustitutos de esa exigencia académica.

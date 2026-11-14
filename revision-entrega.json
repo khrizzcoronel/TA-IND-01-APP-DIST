@@ -1,5 +1,5 @@
 {
-  "fecha_utc": "2026-11-14T02:11:30.994622+00:00",
+  "fecha_utc": "2026-11-14T02:32:55.171343+00:00",
   "estado": "NO_LISTO_PARA_ENTREGA",
   "advertencia": "Este control no acredita autoría, lectura, indexación, acceso público actual, video, permisos ni entrega en SGA. No sustituye la revisión del docente.",
   "comprobaciones": [
@@ -16,7 +16,7 @@
     {
       "comprobacion": "Extensión de contenido",
       "estado": "PASS",
-      "detalle": "12 páginas totales; 9 páginas completas entre carátula y comienzo de referencias. No se cuentan referencias ni anexos."
+      "detalle": "13 páginas totales; 9 páginas completas entre carátula y comienzo de referencias. No se cuentan referencias ni anexos."
     },
     {
       "comprobacion": "Resumen entre 150 y 200 palabras",
@@ -131,7 +131,7 @@
       "comprobacion": "Historial progresivo",
       "estado": "PENDIENTE",
       "detalle": {
-        "commits_totales": 3,
+        "commits_totales": 4,
         "días_locales": [
           "2026-11-13"
         ],
@@ -146,9 +146,9 @@
         "Confirmar entrega de FORM-FB-01 en SGA. Se observan los archivos en el repositorio compartido; eso no prueba entrega formal.",
         "Localizar y confirmar FORM-AC-01. El PDF aportado describe un diseño bancario, no acredita un análisis de incidente real. Solo el docente puede confirmar una equivalencia.",
         "Confirmar plazo y zona horaria en SGA: la consigna dice 15 de noviembre de 2026, 23:55.",
-        "Leer las fuentes y hacer tres capturas originales anotadas, con página y relación explícita con citas del texto.",
+        "Leer personalmente las fuentes y aportar las tres capturas anotadas exigidas. El estudiante solicitó una versión sin capturas; se mantiene como requisito no cumplido, no como dispensa del docente.",
         "Hacer y fotografiar un bosquejo personal a mano con nombre y fecha. Revisar/redibujar el diagrama digital; el actual fue preparado por IA.",
-        "Ejecutar personalmente el laboratorio, conservar resultados identificados y obtener cuatro capturas originales. Las corridas ya incluidas son del asistente.",
+        "Ejecutar personalmente el laboratorio y aportar las cuatro capturas originales exigidas. Hay cuatro ejecuciones reales del asistente, incluida una nueva corrida sin capturas por petición del estudiante; no se atribuyen como ejecución personal.",
         "Validar o sustituir los escenarios ilustrativos de WhatsApp y SGA con experiencias reales del estudiante. Los ejemplos generales ya están redactados, pero no se presentan como observaciones personales.",
         "Revisar y explicar el texto; verificar cada argumento y declarar la asistencia real. Se trata de un borrador, no una entrega independiente terminada.",
         "Registrar bitácora de cada sesión personal y cumplir tres días reales y ocho commits descriptivos propios. No se ha fabricado ese historial.",

@@ -129,3 +129,9 @@ El LaTeX ya incluye automáticamente estos archivos cuando existen:
 - `evidencia/lecturas/01-raptis2023.png`, `02-raptis2024.png`, `03-henning2024.png`.
 
 Sigue `evidencia/lecturas/PLANTILLA.md` para las páginas y citas propuestas. Después de añadir originales, ejecuta `./scripts/compilar.sh` y revisa orden, legibilidad, pies e interpretación. Ajusta los pies si eliges otro pasaje. Las advertencias de pendiente se retiran solo al comprobar el requisito completo; añadir archivos no verifica automáticamente su autoría ni cumple el video o el historial.
+
+## Versión solicitada sin capturas
+
+El estudiante pidió continuar sin capturas de pantalla. Se ejecutó el laboratorio automáticamente y se incorporó una cuarta corrida real PASS con 30 registros conservados en el tópico ISR2 y 20 en ISR3, rechazo explícito durante el fallo y recuperación del nodo. El detalle está en `experimento/ULTIMA-EJECUCION.md` y sus archivos originales enlazados.
+
+Se entregan análisis, fuentes, comandos, resultados, LaTeX, PDF y documento de una página para el SGA. Esta versión no incluye capturas de ejecución ni lecturas anotadas. No reemplazan esa evidencia los archivos textuales: la consigna exige capturas y asocia la ausencia de la evidencia 1 a D3=0. La fotografía del bosquejo, el video y las confirmaciones personales/administrativas tampoco se declaran realizados. Se conserva el estado de borrador y los pendientes, sin simular su cumplimiento.
