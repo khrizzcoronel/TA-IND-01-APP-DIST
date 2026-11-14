@@ -1,1 +1,12 @@
-\textbf{Validación del asistente: PASS.} La corrida UTC \texttt{20261114T003313Z} detuvo el servicio \texttt{kafka3}. El tópico con mínimo ISR dos conservó los 30 mensajes esperados: diez iniciales, diez durante el fallo y diez tras recuperar el nodo. El tópico con mínimo ISR tres conservó los 20 mensajes aceptados antes y después del fallo, y rechazó explícitamente los intentos durante el fallo con \texttt{NotEnoughReplicasException}. Se contrastaron valores y multiplicidades mediante consumo completo. Son resultados reales del asistente, no de una sesión personal del estudiante.
+\textbf{Validaciones automatizadas del asistente: tres corridas PASS.} En cada corrida se aceptaron diez mensajes por fase en el tópico ISR2 y se rechazó la fase de fallo en ISR3 con \texttt{NotEnoughReplicasException}. Los mensajes aceptados se comprobaron por valor y multiplicidad.
+\begin{center}
+\begin{tabular}{lrrl}\toprule
+Corrida UTC & Mensajes ISR2 & Mensajes ISR3 & Nodo detenido\\\midrule
+\texttt{20261114T003313Z} & 30 & 20 & kafka3 \\
+\texttt{20261114T003807Z} & 30 & 20 & kafka1 \\
+\texttt{20261114T004432Z} & 30 & 20 & kafka2 \\
+\bottomrule\end{tabular}
+\end{center}
+ISR2 conservó 30 mensajes y el tópico ISR3 los 20 aceptados antes y después del fallo. La comprobación no considera perdidos los registros explícitamente rechazados. Además, después de corregir el montaje del directorio real de datos, se recrearon los tres contenedores y se verificaron nuevamente los conjuntos de los seis tópicos anteriores: todos PASS. El archivo \path{experimento/persistencia.json} registra esa comprobación adicional.
+
+Las dos primeras corridas verificaron parada y arranque sobre la capa del contenedor; la tercera utilizó el volumen corregido. La comprobación de recreación acredita el montaje persistente. Son ejecuciones reales del asistente, pendientes de repetición y explicación personal del estudiante.

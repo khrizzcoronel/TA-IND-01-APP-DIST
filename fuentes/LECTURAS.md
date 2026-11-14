@@ -1,0 +1,34 @@
+# Fuentes: lo comprobado y lo pendiente
+
+## Identidad bibliográfica
+
+Los cinco registros con DOI se cotejaron con Crossref: título, nombres completos y orden de autores, publicación, tipo de artículo, año, volumen, fascículo y páginas/eid. Los cinco resolvieron con HTTP 302 al recurso editorial registrado. Ver `verificacion-doi.json`.
+
+Esto prueba identidad bibliográfica por cotejo, no acceso integral al artículo. IEEE respondió 202; ACM y algunos destinos de Elsevier limitaron la consulta automática. No se desactivó TLS ni se usaron credenciales o rutas de evasión.
+
+## Manuscritos consultados por el asistente
+
+Los PDF se conservan fuera del repositorio, en `/workspace/lecturas-ta-ind/`. Los enlaces públicos permiten que el estudiante los descargue y lea. Se citan las publicaciones editoriales; las localizaciones siguientes corresponden a los manuscritos indicados.
+
+| Artículo | Versión de lectura | Localización | Qué respalda y qué no |
+|---|---|---|---|
+| Henning y Hasselbring, JSS 2024, DOI 10.1016/j.jss.2023.111879 | [2303.11088v2](https://arxiv.org/pdf/2303.11088v2) | Página PDF 1, abstract | Comparación de escalabilidad y dependencia de recursos. El estudio abarca más de 740 horas y hasta 110 instancias; no es una medida del laboratorio de tres brokers. |
+| Vogel et al., DEBS 2024, DOI 10.1145/3629104.3666040 | [2404.06203v3](https://arxiv.org/pdf/2404.06203v3) | Página PDF 4, secciones 4.2 y 5.2 | Versión Kafka Streams 3.5 e inyección de fallos sobre 1, 2 o 4 workers cada cinco minutos. No prueba el mismo comportamiento para caída de brokers. |
+| Chen et al., ICPE Companion 2026, DOI 10.1145/3777911.3800636 | [2603.04027v1](https://arxiv.org/pdf/2603.04027v1) | Página PDF 4, sección 4.2.2; página PDF 5, sección 4.3 | Evaluación piloto de configuración, mejora aproximada del 23 % y discusión de latencia. No es mejora garantizada para cualquier versión, carga o aplicación. |
+
+`lecturas-consultadas.json` registra las versiones, DOI editoriales y hashes de los archivos descargados. El asistente revisó los pasajes que respaldan el informe; no se atribuye al estudiante la lectura ni se afirma una revisión exhaustiva de cada resultado del artículo.
+
+## Dos textos íntegros pendientes
+
+- Raptis y Passarella, IEEE Access 2023, DOI 10.1109/ACCESS.2023.3303810.
+- Raptis, Cicconetti y Passarella, FGCS 2024, DOI 10.1016/j.future.2023.12.028.
+
+Los datos editoriales y las redirecciones DOI se comprobaron. Las copias CNR y el PDF IEEE devolvieron limitaciones de acceso. No se han fabricado notas de lectura ni resultados de esos trabajos.
+
+## Indexación
+
+`indexacion.json` documenta IEEE Access mediante su página editorial, que enumera Scopus y Web of Science. FGCS y JSS se corroboran mediante sus fichas SCImago, cuya metodología declara datos Scopus. Es una fuente secundaria, no acceso al catálogo de suscripción de Scopus ni una comprobación directa de Web of Science para esas dos revistas.
+
+## Evidencia personal que debe producir el estudiante
+
+Leer tres artículos citados, escoger pasajes vinculados a afirmaciones del informe, anotarlos y obtener capturas propias donde se identifique la página. Las tres versiones abiertas de arriba permiten preparar esas lecturas; no se han creado capturas para simular que el estudiante ya las hizo.

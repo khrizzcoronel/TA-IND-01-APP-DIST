@@ -3,24 +3,30 @@
     "archivo": "kafka-3.9.1-design.html",
     "url": "https://raw.githubusercontent.com/apache/kafka/3.9.1/docs/design.html",
     "sha256": "173af69af7eb1d7cff92750ecc03b0302e6eb13927c058a6a47b02965240b3c1",
-    "nota": "Documentaci\u00f3n oficial, conservar atribuci\u00f3n y licencia del proyecto de origen."
+    "nota": "Documentación oficial, conservar atribución y licencia del proyecto de origen."
   },
   {
     "archivo": "kafka-3.9.1-configuration.html",
     "url": "https://raw.githubusercontent.com/apache/kafka/3.9.1/docs/configuration.html",
     "sha256": "dc6db56e5bec6639a58e88db6695f49601947f5ae2cb9fee92ea5248dbf55dfd",
-    "nota": "Documentaci\u00f3n oficial, conservar atribuci\u00f3n y licencia del proyecto de origen."
+    "nota": "Documentación oficial, conservar atribución y licencia del proyecto de origen."
   },
   {
     "archivo": "rabbitmq-quorum-queues.md",
     "url": "https://raw.githubusercontent.com/rabbitmq/rabbitmq-website/fdafc423b64838b3f11786a2d91ac2e6876bd05b/docs/quorum-queues/index.md",
     "sha256": "992fde3318ad8cbe014a60b7255aece2c1bba435b3eca64f23138d2cac5af901",
-    "nota": "Documentaci\u00f3n oficial, conservar atribuci\u00f3n y licencia del proyecto de origen."
+    "nota": "Documentación oficial, conservar atribución y licencia del proyecto de origen."
   },
   {
     "archivo": "rabbitmq-confirms.md",
     "url": "https://raw.githubusercontent.com/rabbitmq/rabbitmq-website/fdafc423b64838b3f11786a2d91ac2e6876bd05b/docs/confirms.md",
     "sha256": "861abccf819fddcdaddd661255914d867d6ed511a9ff19311bfef73d0907b127",
-    "nota": "Documentaci\u00f3n oficial, conservar atribuci\u00f3n y licencia del proyecto de origen."
+    "nota": "Documentación oficial, conservar atribución y licencia del proyecto de origen."
+  },
+  {
+    "archivo": "kafka-testimonials.json",
+    "url": "https://github.com/apache/kafka-site/blob/cd727c4dd8664857751a87cd0442e51a3d3aca8f/data/testimonials.json",
+    "sha256": "42ec2cb0d7f91fbc283ba4aba3a29e3a53d819a5e508ef68975398c8f74febea",
+    "nota": "Instantánea del sitio oficial, commit del 8 de noviembre de 2026; el testimonio de Grab declara escala TB/hour, no medición propia."
   }
 ]

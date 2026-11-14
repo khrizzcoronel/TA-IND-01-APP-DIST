@@ -1,0 +1,32 @@
+{
+  "consulta_utc": "2026-11-14T01:49:32.626046+00:00",
+  "revistas": [
+    {
+      "revista": "IEEE Access",
+      "url": "https://ieeeaccess.ieee.org/about/bibliometrics/",
+      "estado": "CORROBORADA",
+      "fuente": "EDITORIAL",
+      "evidencia": "La página editorial enumera Scopus y Web of Science entre sus proveedores de indexación.",
+      "sha256_html_consultado": "c45f112bc78d8720e3073d0f139c554e90080484402df721996096ff2992ca2b",
+      "limite": "IEEE es fuente editorial; SCImago es una corroboración secundaria basada en Scopus, no acceso directo al catálogo de suscripción."
+    },
+    {
+      "revista": "Future Generation Computer Systems",
+      "url": "https://www.scimagojr.com/journalsearch.php?q=12264&tip=sid&clean=0",
+      "estado": "CORROBORADA",
+      "fuente": "SCIMAGO_BASADO_EN_SCOPUS",
+      "evidencia": "ISSN 0167739X Coverage 1984-2026 Information Home How to publish in this journal Scope Computing infrastr",
+      "sha256_html_consultado": "fda6da8b18f75320559129550c8eb4d1036b50ab3ca60d87f73518a7fa31bea9",
+      "limite": "IEEE es fuente editorial; SCImago es una corroboración secundaria basada en Scopus, no acceso directo al catálogo de suscripción."
+    },
+    {
+      "revista": "Journal of Systems and Software",
+      "url": "https://www.scimagojr.com/journalsearch.php?q=19309&tip=sid&clean=0",
+      "estado": "CORROBORADA",
+      "fuente": "SCIMAGO_BASADO_EN_SCOPUS",
+      "evidencia": "ISSN 01641212 Coverage 1979, 1981, 1983-2026 Information Home How to publish in this journal Scope The Jo",
+      "sha256_html_consultado": "e50c016f9c9e543a730c344e95b2749472d998ef9fa288e5e2600745b10aca14",
+      "limite": "IEEE es fuente editorial; SCImago es una corroboración secundaria basada en Scopus, no acceso directo al catálogo de suscripción."
+    }
+  ]
+}

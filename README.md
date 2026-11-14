@@ -17,6 +17,7 @@ Pregunta: ¿cómo afectan la replicación y el mínimo ISR a la conservación de
 - `evidencia/`: instrucciones para incorporar evidencias originales. No contiene capturas personales fabricadas.
 - `BITACORA.md`: registro honesto de la sesión asistida y plantilla para las sesiones personales.
 - `PENDIENTES.md`: requisitos que impiden considerar el trabajo listo para entrega.
+- `SUSTENTACION.md`: guía de explicación técnica y preparación del video, y cómo registrar tu siguiente commit.
 
 ## Requisitos
 
@@ -85,9 +86,11 @@ Los procesos deben reiniciarse en una nueva sesión. `docker compose up -d --wai
 python3 scripts/verificar_fuentes.py
 ```
 
-Guarda `fuentes/verificacion-doi.json`; un bloqueo o discrepancia produce código distinto de cero. Completar después revisión manual de cada DOI y datos editoriales, indexación y lectura. Los cinco artículos proceden de las fichas previas: su presencia no equivale a verificación en esta sesión. No entregar ninguna referencia sin comprobar.
+Guarda `fuentes/verificacion-doi.json`. El código 0 indica que los metadatos completos y la redirección inicial de cada DOI coinciden con el recurso editorial registrado en Crossref. Un error de consulta o una discrepancia impide ese resultado. El acceso posterior a la editorial se registra por separado: un 202 o 403 no acredita lectura integral ni invalida por sí solo un registro bibliográfico coincidente.
 
-Dominios requeridos adicionales a los gestores de paquetes: `api.crossref.org`, `doi.org`, `kafka.apache.org`, `www.rabbitmq.com`, `iris.cnr.it`, `arxiv.org`, `eprints.soton.ac.uk`, `ieeexplore.ieee.org`, `www.sciencedirect.com`, `dl.acm.org`. La configuración guardada debe aplicarse antes de reintentar los accesos bloqueados. La documentación oficial incluida sí se recuperó desde GitHub, con versión o commit identificado.
+**Estado actual:** cinco referencias cotejadas sin discrepancias; las cinco redirecciones DOI coinciden con sus registros. `fuentes/indexacion.json` corrobora las tres revistas mediante IEEE y SCImago/Scopus. `fuentes/LECTURAS.md` identifica los tres manuscritos abiertos consultados y sus páginas. Continúan pendientes las dos lecturas integrales de Raptis y la lectura personal del estudiante.
+
+Las fuentes complementarias incluyen el testimonio de uso de Grab publicado por Apache Kafka y el reporte público kafka-go #1358, con límites y cronología explícitos. No reemplazan los tres artículos de revista requeridos.
 
 ## Evidencias y sustentación
 
@@ -98,3 +101,21 @@ Sigue `evidencia/README.md`. **Video de sustentación: PENDIENTE.** Sustituir es
 El contenido inicial fue preparado y validado con asistencia de Codex/ChatGPT. No debe presentarse como redacción o experimentación independiente. El informe declara esta intervención. No se inventaron sesiones, commits retrofechados, experiencias personales, capturas ni fuentes nuevas.
 
 El requisito de ocho commits en tres días necesita trabajo real del estudiante. No se cumple dividiendo este borrador artificialmente en ocho commits. Registra avances reales: elección y alcance, lecturas verificadas, bosquejo, ejecución personal, interpretación, comparación, revisión bibliográfica y comprobación de entrega. Si no hay tres días disponibles, consultar al docente sobre el requisito; no falsear fechas.
+
+## Commits autorizados
+
+El estudiante autorizó registrar esta continuación con la identidad ya configurada en Git y sin trailers `Co-authored-by`. Los commits anteriores conservan sus autores. La asistencia y las ejecuciones automatizadas siguen declaradas en el informe y la bitácora; el commit no acredita por sí solo experimentación, lectura o redacción independiente. La publicación del entorno y la entrega en SGA son acciones distintas.
+
+## Control previo de archivos
+
+Desde la raíz, con Python, Git y Poppler (`pdfinfo` y `pdftotext`) disponibles:
+
+```sh
+python3 scripts/comprobar_entrega.py
+```
+
+Guarda `revision-entrega.json`. Comprueba página y URL del PDF SGA, extensión del informe, resumen, configuración IEEE/Biber, claves citadas, artículos candidatos y archivos de evidencia. El código 2 significa que quedan requisitos pendientes; no es un fallo inesperado del programa. Los conteos no acreditan autoría ni indexación. La revisión de DOI continúa separada. Cuando pasen los controles automáticos todavía hace falta confirmación humana final.
+
+## Estado actual de red
+
+El estudiante publicó un nuevo entorno con acceso a Internet sin restricciones. Crossref y el resolvedor DOI están accesibles. Algunas editoriales y repositorios todavía limitan solicitudes automatizadas, y sus respuestas quedan documentadas por fuente. No se desactivaron TLS ni controles de integridad. Los cambios actuales del trabajo no requieren volver a publicar el entorno.

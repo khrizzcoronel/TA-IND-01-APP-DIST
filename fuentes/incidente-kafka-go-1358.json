@@ -1,0 +1,77 @@
+{
+  "url": "https://github.com/segmentio/kafka-go/issues/1358",
+  "consulta_utc": "2026-11-14T01:04:59.938018+00:00",
+  "entradas": [
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358",
+      "fecha_utc": "2024-12-18T09:55:22Z",
+      "autor": {
+        "login": "fjagugar",
+        "name": "Javier Aguadero"
+      },
+      "sha256_texto_consultado": "b70fd5d4d02bf8fbfff86402ef2f063421f88b701a546fa7229e8432d5020a7e",
+      "extracto_breve_original": "**Describe the bug** While debugging a high CPU consumption in my project, I noticed that each time an event is sent to Kafka, the number of goroutines running in my project was increasing. The code sending the event is: ``` func (k *Client) Push(ctx context.Context, topicName string, message *kafka.Message) error { writer := &kafka.Writer{ Addr: kafka.TCP(k.brokers...), Topic: topicName, Balancer: &kafka.Murmur2Balancer{}, Transport: &kafka.Transport{ TLS: k.dialer.TLS, }, } defer func() { err := writer.Close() if err !=",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    },
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358#issuecomment-2582851880",
+      "fecha_utc": "2025-01-10T14:35:53Z",
+      "autor": {
+        "login": "petedannemann",
+        "name": "Peter Dannemann"
+      },
+      "sha256_texto_consultado": "0e00bf396edde4964c0aff63225d27bc3b0f7b41f81cc111c78db6179aea57f8",
+      "extracto_breve_original": "While there may be a goroutine leak I suspect the reason why this is actually problematic for you is because you are creating a new writer each time you are writing a message. If you create a single writer and reuse it I imagine this will be a non-issue",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    },
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358#issuecomment-2852240796",
+      "fecha_utc": "2025-05-05T20:21:16Z",
+      "autor": {
+        "login": "tedwards-bw",
+        "name": "Tony Edwards"
+      },
+      "sha256_texto_consultado": "73cc1ab1745d05ece6b75ce7aec95b174bc047dbe9a9151a2f8a896aa2fba64d",
+      "extracto_breve_original": "@fjagugar I'm seeing the same thing (I create a new writer for each batch I'm processing) - did you fork and fix it, or did you change your implementation to reduce the number of writers you create? Doesn't seem like a lot of fixes are happening these days.",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    },
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358#issuecomment-3572519494",
+      "fecha_utc": "2025-11-24T20:06:50Z",
+      "autor": {
+        "login": "JayantNayak",
+        "name": "Jayant Kumar Nayak"
+      },
+      "sha256_texto_consultado": "5148c553809bff048e25662fdae4a402bad7a93485ef1e0fd6399f3fbad02f49",
+      "extracto_breve_original": "Hi I am facing the same issue. We have a logic of refreshing writers at a fixed interval even after we close the writers we",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    },
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358#issuecomment-3747895748",
+      "fecha_utc": "2026-01-14T05:49:51Z",
+      "autor": {
+        "login": "Jayant-nayak",
+        "name": "Jayant Kumar Nayak"
+      },
+      "sha256_texto_consultado": "990a13fe40000c4731699b3b268a6b3e1a384d25ebe1225565aa4f3f2e54c589",
+      "extracto_breve_original": "Hi maintainers 👋 @petedannemann @LeonHartley @hhahn-tw This issue is currently impacting us in production and we’re unable to apply a safe workaround. Could someone from the maintainers please confirm ownership and next steps? Happy to provide additional details. Thanks.",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    },
+    {
+      "url": "https://github.com/segmentio/kafka-go/issues/1358#issuecomment-5248583930",
+      "fecha_utc": "2026-08-11T03:16:33Z",
+      "autor": {
+        "login": "om7057",
+        "name": "Om Kulkarni"
+      },
+      "sha256_texto_consultado": "cacef0a5ccf92a9520deafda2dc1236a705515caf7c6c02a7f1a4958b492b871",
+      "extracto_breve_original": "Traced this down. The `refc`/`unref` logic in `transport.go` itself is working as designed, the leak isn't a bug in the ref-counting, it's that `Writer.Close()` only calls `CloseIdleConnections()` on a `Transport` it created *internally* (via the deprecated `NewWriter(WriterConfig)` constructor, see the private `transport` field vs. the public `Transport` field in `writer.go`). When you construct a `Writer{Transport: &kafka.Transport{...}}` directly via struct literal (as in the repro above), `Close()` never touches that `Transport`, so its background `discover()` goroutine",
+      "nota": "El extracto es parcial; consultar el comentario original mediante su URL. El análisis del informe es una paráfrasis."
+    }
+  ],
+  "versiones_indicadas_en_reporte_inicial": {
+    "Apache Kafka": "3.7.0",
+    "kafka-go": "0.4.47"
+  },
+  "limite_interpretacion": "El reporte describe CPU y goroutines; hay declaración de afectación en producción por un participante. No documenta una interrupción global con duración medida, pérdida de mensajes ni recuperación productiva confirmada."
+}

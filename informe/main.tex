@@ -10,7 +10,7 @@
 \usetikzlibrary{positioning,arrows.meta,fit,babel}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={TA-IND-01: Kafka frente a RabbitMQ (borrador asistido)},pdfauthor={Khriz Alexander Coronel Gómez; preparación asistida por Codex}}
+\hypersetup{pdftitle={TA-IND-01: Kafka frente a RabbitMQ (borrador asistido)},pdfauthor={Khriz Alexander Coronel Gómez}}
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{TA-IND-01: Kafka frente a RabbitMQ}\fancyhead[R]{Borrador asistido por IA}\fancyfoot[C]{\thepage}
@@ -30,7 +30,7 @@ TA-IND-01 --- Informe académico individual\\Khriz Alexander Coronel Gómez\\Sé
 \url{https://github.com/khrizzcoronel/TA-IND-01-APP-DIST}\vfill
 \textbf{BORRADOR DE TRABAJO ASISTIDO POR IA}\\
 No presentar como redacción ni experimentación independiente del estudiante.\\
-Faltan evidencias personales, verificación bibliográfica final y requisitos administrativos.
+Faltan evidencias personales, dos lecturas integrales y requisitos administrativos.
 \end{titlepage}
 \hypersetup{pageanchor=true}
 
@@ -43,11 +43,21 @@ Un servicio que genera eventos no siempre puede esperar a que todos sus destinat
 El sistema interesa por un problema preciso: determinar qué significa que una escritura esté confirmada cuando falla un nodo. La pregunta orientadora es: \emph{¿cómo influyen la replicación y el mínimo de réplicas sincronizadas en la conservación de mensajes y la disponibilidad ante la caída de un broker?} Se compara Kafka con RabbitMQ para el caso de entrega asíncrona entre servicios. Se estudian las colas de cuórum de RabbitMQ, no se generalizan sus propiedades a todos los tipos de cola.
 
 El alcance experimental es un despliegue local de Kafka 3.9.1 con tres procesos combinados de broker y controlador. No representa la escala ni el aislamiento de una plataforma productiva: los tres contenedores comparten máquina, almacenamiento subyacente y daemon de Docker. La arquitectura admite particionar el registro y distribuir líderes, pero este experimento usa una sola partición por tópico para aislar el efecto de la replicación. No se presenta una medición de capacidad o de número de usuarios en producción.
-\pendiente{Incorporar un despliegue productivo documentado de Kafka: organización usuaria, función y escala con fuente primaria. Confirmar su elección en el foro.}
+Como ejemplo de uso real, el testimonio de Grab publicado en el sitio oficial de Kafka describe una plataforma de datos que utiliza Kafka a escala de terabytes por hora para registros de eventos críticos, event sourcing y procesamiento de flujos. Identifica aplicaciones en transporte, entrega de alimentos y servicios financieros \cite{kafkapoweredby}. La cifra expresa el orden de magnitud declarado por la organización, no un benchmark independiente ni la carga de este laboratorio. No se atribuye una cantidad exacta de brokers ni una versión actual a Grab porque esa fuente no las proporciona.
+\pendiente{Confirmar disponibilidad y registro de Kafka en el foro.}
 
-\subsection{Antecedentes bibliográficos por completar}
-Las fichas FORM-FB-01 seleccionan una revisión de Kafka \cite{raptis2023survey}, un estudio de particionado \cite{raptis2024partitioning} y una evaluación de escalabilidad de procesamiento de flujos \cite{henning2024scalability}. También proponen trabajos de recuperación y configuración de Kafka Streams \cite{vogel2024recovery,chen2026tuning}. Estas publicaciones son candidatas heredadas de las fichas; en esta sesión la consulta de DOI está bloqueada y no se ha completado su lectura. No se usan sus resultados cuantitativos para sustentar conclusiones. Kafka Streams es una biblioteca de procesamiento y sus resultados no deben trasladarse automáticamente a la replicación del broker.
-\pendiente{Cotejar metadatos y leer los artículos antes de mantener estas referencias en una versión de entrega. Integrar únicamente afirmaciones que puedan respaldarse con páginas o secciones verificadas.}
+\subsection{Antecedentes y alcance de la revisión}
+Se cotejaron en Crossref las cinco publicaciones heredadas de FORM-FB-01: nombres completos y orden de autores, título, revista o actas, tipo de publicación, año, volumen, fascículo y páginas o identificador. Los cinco DOI redirigen al mismo recurso editorial registrado en Crossref. Los registros de los tres artículos de revista no incluyen fascículo; el identificador 111879 de Journal of Systems and Software no se trata como un intervalo de páginas. Estos resultados y los límites del acceso editorial están en \path{fuentes/verificacion-doi.json}.
+
+Raptis y Passarella proporcionan una revisión de la literatura sobre Kafka \cite{raptis2023survey}; Raptis, Cicconetti y Passarella estudian el particionado de tópicos para aplicaciones de alta fiabilidad \cite{raptis2024partitioning}. Sus metadatos y destinos DOI se comprobaron, pero no se obtuvo texto íntegro de esas dos obras en esta sesión. No se les atribuyen resultados experimentales que no se hayan consultado.
+
+Se consultaron tres manuscritos de autores disponibles en arXiv, manteniendo en la bibliografía las publicaciones editoriales correspondientes. Henning y Hasselbring comparan alternativas de procesamiento de flujos y reportan escalabilidad aproximadamente lineal cuando hay recursos suficientes, sin un framework superior en todos los casos. Su abstract describe más de 740 horas de experimentos y hasta 110 instancias de microservicios \cite{henning2024scalability}. La localización es la página 1 del manuscrito arXiv 2303.11088v2. El resultado orienta la elección de métricas y recursos, pero no demuestra escalabilidad del clúster local de tres nodos.
+
+Vogel y colaboradores inyectan fallos de workers con Chaos Mesh. Las secciones 4.2 y 5.2, página 4 del manuscrito arXiv 2404.06203v3, identifican Kafka Streams 3.5 y escenarios que eliminan 1, 2 o 4 pods, repetidos cada cinco minutos \cite{vogel2024recovery}. Se distingue ese fallo de procesamiento del fallo de broker estudiado aquí: mantener disponible el registro no implica que un procesador recupere inmediatamente su rendimiento.
+
+Chen y colaboradores presentan una evaluación piloto de ajuste de Kafka Streams, con mejoras de throughput de aproximadamente 23\,\% sobre la configuración base en su escenario. La sección 4.2.2 está en la página 4 y la discusión 4.3 en la página 5 del manuscrito arXiv 2603.04027v1. La discusión informa además mayor latencia en las configuraciones que mejoraron el throughput \cite{chen2026tuning}. Ese resultado respalda evaluar compromisos de configuración; no se traslada a una ganancia esperada de Kafka 3.9.1 ni demuestra un modelo de consistencia o una clasificación PACELC.
+
+La indexación de IEEE Access se corroboró con su página editorial; la presencia de Future Generation Computer Systems y Journal of Systems and Software se corroboró en SCImago con datos de Scopus. Se registran URLs, procedencia y límites en \path{fuentes/indexacion.json}. La lectura asistida y el cotejo de metadatos no sustituyen las lecturas, anotaciones y capturas personales requeridas al estudiante.
 
 \section{Arquitectura y comunicación}
 \subsection{Componentes y responsabilidades}
@@ -109,7 +119,16 @@ PACELC ayuda a formular preguntas sobre el costo de coordinar incluso sin partic
 La replicación conserva copias del registro; las ISR delimitan qué seguidores pueden participar de las garantías descritas. Tras perder un líder, se elige otro elegible y los clientes actualizan metadatos. Un seguidor que vuelve debe recuperar su posición antes de contar nuevamente como sincronizado. La elección de un líder fuera del ISR puede recuperar disponibilidad a costa de perder registros; aquí se deshabilita expresamente \cite{kafka391design}.
 
 El productor del experimento activa idempotencia. Eso contribuye a evitar duplicados de reintentos dentro del alcance del protocolo, pero no convierte en exactamente una vez un cargo bancario o un correo realizado por un consumidor. La aplicación necesita coordinar sus efectos y su progreso, o deduplicar mediante identificadores. Tampoco se prueba resistencia a pérdida física de todos los discos: los contenedores comparten anfitrión.
-\pendiente{Incluir un incidente real documentado con fecha, fuente primaria, causa, impacto y recuperación. Una caída inyectada en este laboratorio no reemplaza un incidente de producción.}
+\subsection{Fallo real reportado: acumulación de goroutines en kafka-go}
+El 18 de diciembre de 2024, Javier Aguadero abrió el reporte 1358 de kafka-go al investigar consumo elevado de CPU. Su ejemplo creaba un Writer y un Transport nuevos por evento, cerraba el Writer y observaba un incremento de goroutines que continuaban ejecutándose. El reporte identifica Kafka 3.7.0 y kafka-go 0.4.47 \cite{aguadero2024goroutines}. Son versiones de componentes distintos: 0.4.47 corresponde a la biblioteca Go y no al broker.
+
+El hilo registra el 24 de noviembre de 2025 otra observación de acumulación de llamadas de metadatos al renovar writers, con aumento de consumo de CPU tanto en cliente como en servidor. El 14 de enero de 2026 un participante declara impacto en producción y ausencia de una mitigación segura disponible para su equipo. Se trata de reportes públicos de usuarios dentro del repositorio del cliente, no de un post mortem corporativo con métricas auditadas. No proporcionan duración de una interrupción global, mensajes perdidos ni identidad comprobable de la organización afectada; no se inventan esos datos.
+
+El 11 de agosto de 2026, Om Kulkarni distingue entre el Transport privado creado internamente por el Writer y un Transport externo proporcionado por el llamador. Su análisis atribuye el problema de ciclo de vida a la segunda situación y propone aclarar la documentación \cite{kulkarni2026comment}. El código versionado permite corroborar una parte concreta: Writer.Close() llama a CloseIdleConnections() cuando el campo privado w.transport no es nulo; no cierra incondicionalmente cualquier Transport externo \cite{kafkagowriter047}. Esa inspección respalda la distinción de propiedad, pero no demuestra por sí sola el diagnóstico completo de todos los participantes.
+
+La mitigación discutida consiste en reutilizar writers y transports y cerrar las conexiones del Transport externo cuando corresponde a su propietario. El hilo consultado no confirma una recuperación medida del equipo que declaró impacto productivo, por lo que se presenta como propuesta documentada, no como solución demostrada en su infraestructura. No se recomienda cambiar de versión ni afirmar una corrección del broker sin evidencia adicional.
+
+Este caso muestra un límite de la transparencia de fallos: replicar el registro no impide que el cliente degrade el servicio por una gestión incorrecta o poco clara de recursos. También separa disponibilidad del broker y capacidad de la aplicación para producir eventos. La observación está relacionada con comunicación y operación, mientras que el laboratorio estudia ISR y confirmaciones. Ambos niveles deben examinarse, pero el laboratorio no reproduce la acumulación de goroutines del reporte.
 
 \section{Experimentación reproducible}
 \subsection{Hipótesis y configuración}
@@ -125,13 +144,23 @@ Se ejecuta \texttt{python3 scripts/experimento.py --operador asistente-IA}. Cada
 La comprobación evalúa esta secuencia y esta cantidad de mensajes, no una garantía matemática de ausencia de pérdidas bajo cualquier fallo. Los tiempos de los comandos incluyen arranque de clientes, espera y consumo; no se interpretan como latencias individuales. Los mensajes rechazados en B no se cuentan como perdidos porque nunca recibieron confirmación satisfactoria. La conservación solo se exige sobre mensajes que la prueba identificó como aceptados.
 \pendiente{Incorporar al menos cuatro capturas de la ejecución personal: estado sano, publicación/consumo, nodo detenido con ISR reducido y recuperación. Deben mostrar datos identificativos y fecha/hora reales.}
 
-\section{Ejemplos del entorno del estudiante}
-No se atribuyen al estudiante observaciones de uso que no ha proporcionado. El diseño bancario CGLS es un ejercicio académico, no evidencia de que el estudiante opere una plataforma bancaria real.
-\begin{enumerate}
-\item \textbf{Ejemplo 1 por documentar.} Indicar un sistema utilizado, situación concreta, fecha aproximada, comportamiento observado y concepto relacionado. Distinguir observación de hipótesis: un aviso tardío puede ilustrar desacoplamiento temporal, pero no prueba que el sistema use Kafka.
-\item \textbf{Ejemplo 2 por documentar.} Elegir otro sistema conocido de primera mano y describir un episodio verificable. Si un saldo tarda en actualizarse, explicar las hipótesis alternativas antes de afirmar un modelo interno de consistencia.
-\end{enumerate}
-\pendiente{Sustituir estos espacios por dos experiencias reales redactadas y explicadas por el estudiante.}
+\section{Ejemplos del entorno: escenarios ilustrativos}
+Los siguientes escenarios se redactaron a petición del estudiante como ejemplos generales. No se afirma que sean experiencias personales suyas ni se atribuye a los servicios una arquitectura interna no verificada. Para cumplir la evidencia de autoría, el estudiante debe vincularlos con observaciones propias reales o sustituirlos.
+
+\subsection{WhatsApp: un mensaje que tarda en entregarse}
+En un escenario cotidiano ilustrativo, una persona envía un mensaje y el destinatario lo recibe varios minutos después. Antes de atribuir la demora a una caída global, sería necesario comprobar conectividad de ambos dispositivos, si el destinatario estaba conectado y si otras funciones del servicio estaban disponibles. La demora observada, por sí sola, no identifica el componente responsable.
+
+El concepto relevante es la comunicación asíncrona: enviar una solicitud y que el destinatario procese el mensaje pueden ocurrir en momentos distintos. La aplicación necesita comunicar estados de progreso y manejar desconexiones o reintentos. Este razonamiento explica por qué una confirmación de una etapa no debe confundirse con la finalización de todas las etapas. No demuestra que WhatsApp use Kafka, que emplee una cola concreta ni que la demora sea un caso de consistencia eventual.
+
+Si el estudiante ha vivido una situación semejante, debe añadir qué observó, desde qué dispositivo, cuándo aproximadamente y qué comprobó. Conviene distinguir claramente el envío local, la entrega y la lectura, sin inventar capturas de una conversación.
+
+\subsection{SGA: lentitud y posterior indisponibilidad al entregar}
+En otro escenario ilustrativo, una plataforma académica carga lentamente durante una entrega y después deja de responder. Una página que tarda no demuestra una partición de red ni un fallo total del servicio: puede deberse a congestión, dependencia lenta, red del usuario u otros factores. Una observación útil sería comprobar si falló también el acceso desde otra conexión y si la plataforma confirmó o no la recepción del archivo.
+
+Este caso se relaciona con disponibilidad, tiempos de espera y transparencia de fallos. La interfaz puede ocultar la distribución mientras funciona, pero al fallar una dependencia debe informar al usuario sobre el resultado. Si la conexión vence después de enviar el archivo, el resultado puede ser incierto: el servidor podría haberlo guardado sin que llegara la confirmación. Antes de repetir la operación conviene consultar su estado. Desde el diseño, identificadores estables y operaciones idempotentes ayudan a evitar efectos duplicados; no se afirma que el SGA concreto ya implemente esos mecanismos.
+
+La relación con el laboratorio es limitada pero útil: que un cliente no reciba una respuesta satisfactoria obliga a inspeccionar el resultado, y no equivale automáticamente a demostrar pérdida de un dato previamente confirmado. Para convertir este ejemplo en evidencia personal faltan el episodio real y la observación del estudiante.
+\pendiente{Validar o sustituir ambos escenarios con dos experiencias auténticas del estudiante. Los ejemplos generales no reemplazan la evidencia personal exigida.}
 
 \section{Comparación crítica con RabbitMQ}
 El problema compartido es desacoplar servicios mediante mensajes y tolerar fallos. La comparación se limita a Kafka con registros replicados y RabbitMQ con colas de cuórum; RabbitMQ también dispone de otras estructuras que requieren un análisis distinto \cite{kafka391design,rabbitquorum,rabbitconfirms}.
@@ -168,7 +197,7 @@ Kafka no sería la primera elección de este análisis para una aplicación que 
 \section{Declaración de uso de inteligencia artificial}
 Se utilizó ChatGPT mediante el agente Codex para analizar la consigna, preparar este borrador, construir el diagrama digital, configurar Docker, redactar scripts y ejecutar una validación automatizada. El identificador exacto de versión del modelo no está disponible en la interfaz de esta sesión y no se inventa. Los resultados del asistente se distinguen de la ejecución personal pendiente.
 
-Se comprobó el comportamiento técnico con comandos reales y se consultó documentación oficial recuperada desde sus repositorios. Las fuentes académicas heredadas de FORM-FB-01 requieren verificación independiente de DOI y metadatos antes de entregar. El estudiante debe registrar sus revisiones, corregir lo que no pueda respaldar y declarar el alcance final de esta asistencia. Este borrador no debe presentarse como escritura independiente sin esa declaración y revisión.
+Se comprobó el comportamiento técnico con comandos reales y se consultó documentación oficial recuperada desde sus repositorios. Las cinco fuentes académicas heredadas de FORM-FB-01 se cotejaron con Crossref y sus redirecciones DOI. Se consultaron tres manuscritos de autores; la lectura integral de los dos trabajos de Raptis y las evidencias personales siguen pendientes. Algunas páginas editoriales limitaron el acceso automatizado, lo que se informa por separado del cotejo bibliográfico. El estudiante debe registrar sus revisiones, corregir lo que no pueda respaldar y declarar el alcance final de esta asistencia. Este borrador no debe presentarse como escritura independiente sin esa declaración y revisión.
 
 \printbibliography[title={Referencias}]
 \appendix

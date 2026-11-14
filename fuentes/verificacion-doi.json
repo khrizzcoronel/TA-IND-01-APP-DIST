@@ -1,41 +1,3023 @@
 {
-  "fecha_utc": "2026-11-14T00:38:07.283325+00:00",
+  "fecha_utc": "2026-11-14T01:45:48.577798+00:00",
   "fuentes": [
     {
       "clave": "raptis2023survey",
       "doi": "10.1109/ACCESS.2023.3303810",
-      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "tipo_bib": "article",
+      "estado": "METADATOS_Y_REDIRECCION_OK",
       "discrepancias": [],
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "crossref": {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T14:53:03Z",
+          "timestamp": 1793976783927,
+          "version": "4.8.0"
+        },
+        "reference-count": 79,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2023-01-01T00:00:00Z",
+              "timestamp": 1672531200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100010668",
+            "name": "European Union’s Horizon 2020 Research and Innovation Program MARVEL",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "957337"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "957337"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100010668",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IEEE Access"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "DOI": "10.1109/access.2023.3303810",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              8,
+              9
+            ]
+          ],
+          "date-time": "2023-08-09T13:31:58Z",
+          "timestamp": 1691587918000
+        },
+        "page": "85333-85350",
+        "source": "Crossref",
+        "is-referenced-by-count": 106,
+        "title": [
+          "A Survey on Networked Data Streaming With Apache Kafka"
+        ],
+        "prefix": "10.1109",
+        "volume": "11",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-2906-584X",
+            "authenticated-orcid": false,
+            "given": "Theofanis P.",
+            "family": "Raptis",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Institute of Informatics and Telematics, National Research Council, Pisa, Italy"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1694-612X",
+            "authenticated-orcid": false,
+            "given": "Andrea",
+            "family": "Passarella",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Informatics and Telematics, National Research Council, Pisa, Italy"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/HPCC/SmartCity/DSS.2019.00036"
+          },
+          {
+            "key": "ref57",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/MDM48529.2020.00080"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3459960.3459961"
+          },
+          {
+            "key": "ref56",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/UCC-Companion.2018.00039"
+          },
+          {
+            "key": "ref15",
+            "article-title": "Kafka consumer group autoscaler",
+            "author": "landau",
+            "year": "2022",
+            "journal-title": "arXiv 2206 11170"
+          },
+          {
+            "key": "ref59",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3526059.3533621"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CITS55221.2022.9832981"
+          },
+          {
+            "key": "ref58",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2021.3085736"
+          },
+          {
+            "key": "ref53",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3500931.3500937"
+          },
+          {
+            "key": "ref52",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-49556-5_30"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICPADS.2015.106"
+          },
+          {
+            "key": "ref55",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigData.2017.8258195"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/AiCIS.2018.00036"
+          },
+          {
+            "key": "ref54",
+            "first-page": "368",
+            "article-title": "Construction scheme of a scalable distributed stream processing infrastructure using ray and Apache Kafka",
+            "volume": "58",
+            "author": "kato",
+            "year": "2019",
+            "journal-title": "Proc 34th Int Conf Comput Their Appl"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/NOMS.2018.8406306"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-30952-7_14"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3406601.3406612"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5220/0009780501710180"
+          },
+          {
+            "key": "ref51",
+            "first-page": "324",
+            "article-title": "Achieving reliable communication between Kafka and ROS through bridge codes",
+            "author": "lourenço",
+            "year": "2021",
+            "journal-title": "Proc Int Conf Adv Robot (ICAR)"
+          },
+          {
+            "key": "ref50",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BHI.2018.8333418"
+          },
+          {
+            "key": "ref46",
+            "first-page": "1",
+            "article-title": "Apache spark and Apache Kafka at the rescue of distributed RDF stream processing engines",
+            "volume": "1690",
+            "author": "ren",
+            "year": "2016",
+            "journal-title": "Proc ISWC Posters Demonstrations Track Co-Located With 15th Int Semantic Web Conf (ISWC)"
+          },
+          {
+            "key": "ref45",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-22354-0_48"
+          },
+          {
+            "key": "ref48",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3514221.3526056"
+          },
+          {
+            "key": "ref47",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3093742.3093908"
+          },
+          {
+            "key": "ref42",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CSNet52717.2021.9614282"
+          },
+          {
+            "key": "ref41",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/PerComWorkshops53856.2022.9767510"
+          },
+          {
+            "key": "ref44",
+            "first-page": "524",
+            "article-title": "KSQL: Streaming SQL engine for Apache Kafka",
+            "author": "jafarpour",
+            "year": "2019",
+            "journal-title": "Proc Int Conf on Extending Database Technology (EDBT)"
+          },
+          {
+            "key": "ref43",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigData50022.2020.9378217"
+          },
+          {
+            "key": "ref49",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-85928-2_43"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISMSIT52890.2021.9604746"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CCICT53244.2021.00038"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2019.2946884"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s18082611"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.comnet.2019.107039"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/2824032.2824063"
+          },
+          {
+            "key": "ref5",
+            "first-page": "1",
+            "author": "sax",
+            "year": "2018",
+            "journal-title": "Apache Kafka"
+          },
+          {
+            "key": "ref40",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.4018/IJIIT.2021010103"
+          },
+          {
+            "key": "ref35",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigData.2017.8258548"
+          },
+          {
+            "key": "ref79",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.inffus.2021.11.013"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3491086.3492470"
+          },
+          {
+            "key": "ref78",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3569507.3569509"
+          },
+          {
+            "key": "ref37",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.future.2021.07.037"
+          },
+          {
+            "key": "ref36",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-48340-1_58"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/fi15020043"
+          },
+          {
+            "key": "ref75",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/ett.4407"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3437120.3437283"
+          },
+          {
+            "key": "ref74",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JSAIT.2021.3126687"
+          },
+          {
+            "key": "ref33",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/FAS-W.2016.23"
+          },
+          {
+            "key": "ref77",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.arcontrol.2021.03.006"
+          },
+          {
+            "key": "ref32",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5220/0011071300003194"
+          },
+          {
+            "key": "ref76",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.cie.2021.107750"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JSAC.2020.2980917"
+          },
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BalkanCom53780.2021.9593258"
+          },
+          {
+            "key": "ref39",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.sysarc.2021.102214"
+          },
+          {
+            "key": "ref38",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2021.3110291"
+          },
+          {
+            "key": "ref71",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigData47090.2019.9005583"
+          },
+          {
+            "key": "ref70",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICPADS51040.2020.00061"
+          },
+          {
+            "key": "ref73",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.is.2020.101569"
+          },
+          {
+            "key": "ref72",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s19010134"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/DSN48063.2020.00068"
+          },
+          {
+            "key": "ref68",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3452411.3464443"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICPADS51040.2020.00089"
+          },
+          {
+            "key": "ref67",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11227-021-04241-1"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3148055.3148068"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISSREW.2019.00101"
+          },
+          {
+            "key": "ref69",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigData52589.2021.9671388"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-031-08819-3_31"
+          },
+          {
+            "key": "ref64",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.4018/IJWSR.2020100102"
+          },
+          {
+            "key": "ref63",
+            "first-page": "97",
+            "article-title": "Big sensor-generated data streaming using Kafka and impala for data storage in wireless sensor network for CO2 monitoring",
+            "author": "wiska",
+            "year": "2016",
+            "journal-title": "Proc Int Workshop Big Data Inf Secur (IWBIS)"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISSREW.2019.00055"
+          },
+          {
+            "key": "ref66",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2020.2976660"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISSRE5003.2020.00028"
+          },
+          {
+            "key": "ref65",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-981-15-0118-0_11"
+          },
+          {
+            "key": "ref28",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ECOC52684.2021.9606002"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/3137765.3137771"
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/BigComp48618.2020.0-101"
+          },
+          {
+            "key": "ref60",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-84811-8_2"
+          },
+          {
+            "key": "ref62",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-22744-9_50"
+          },
+          {
+            "key": "ref61",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3445945.3445949"
+          }
+        ],
+        "container-title": [
+          "IEEE Access"
+        ],
+        "original-title": [],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx7/6287639/10005208/10213406.pdf?arnumber=10213406",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              4
+            ]
+          ],
+          "date-time": "2023-09-04T14:26:59Z",
+          "timestamp": 1693837619000
+        },
+        "score": 1,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/10213406/"
+          }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "references-count": 79,
+        "URL": "https://doi.org/10.1109/access.2023.3303810",
+        "relation": {},
+        "ISSN": [
+          "2169-3536"
+        ],
+        "issn-type": [
+          {
+            "value": "2169-3536",
+            "type": "electronic"
+          }
+        ],
+        "subject": [],
+        "published": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        }
+      },
+      "metadatos": "COINCIDEN",
+      "resolucion_doi": {
+        "http": 302,
+        "destino": "https://ieeexplore.ieee.org/document/10213406/"
+      },
+      "destino_editorial_registrado": "https://ieeexplore.ieee.org/document/10213406/",
+      "destino_coincide_registro": true,
+      "acceso_editorial": {
+        "http": 202,
+        "url_final": "https://ieeexplore.ieee.org/document/10213406/",
+        "tipo_contenido": "text/html; charset=UTF-8"
+      }
     },
     {
       "clave": "raptis2024partitioning",
       "doi": "10.1016/j.future.2023.12.028",
-      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "tipo_bib": "article",
+      "estado": "METADATOS_Y_REDIRECCION_OK",
       "discrepancias": [],
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "crossref": {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              7
+            ]
+          ],
+          "date-time": "2026-11-07T19:09:22Z",
+          "timestamp": 1794078562816,
+          "version": "4.8.0"
+        },
+        "reference-count": 28,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  5,
+                  1
+                ]
+              ],
+              "date-time": "2024-05-01T00:00:00Z",
+              "timestamp": 1714521600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  5,
+                  1
+                ]
+              ],
+              "date-time": "2024-05-01T00:00:00Z",
+              "timestamp": 1714521600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  12,
+                  27
+                ]
+              ],
+              "date-time": "2023-12-27T00:00:00Z",
+              "timestamp": 1703635200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Future Generation Computer Systems"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.future.2023.12.028",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2024-01-08T11:32:30Z",
+          "timestamp": 1704713550000
+        },
+        "page": "173-188",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 40,
+        "special_numbering": "C",
+        "title": [
+          "Efficient topic partitioning of Apache Kafka for high-reliability real-time data streaming applications"
+        ],
+        "prefix": "10.1016",
+        "volume": "154",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-2906-584X",
+            "authenticated-orcid": false,
+            "given": "Theofanis P.",
+            "family": "Raptis",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4503-4223",
+            "authenticated-orcid": false,
+            "given": "Claudio",
+            "family": "Cicconetti",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Andrea",
+            "family": "Passarella",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "1",
+            "key": "10.1016/j.future.2023.12.028_b1",
+            "doi-asserted-by": "crossref",
+            "first-page": "372",
+            "DOI": "10.1109/TSC.2019.2944360",
+            "article-title": "Improving the schedulability of real-time tasks using fog computing",
+            "volume": "15",
+            "author": "Fizza",
+            "year": "2022",
+            "journal-title": "IEEE Trans. Serv. Comput."
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b2",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.pmcj.2020.101221",
+            "article-title": "Distributed load balancing for heterogeneous fog computing infrastructures in smart cities",
+            "volume": "67",
+            "author": "Beraldi",
+            "year": "2020",
+            "journal-title": "Pervasive Mob. Comput."
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b3",
+            "series-title": "2020 IEEE International Conference on Big Data and Smart Computing",
+            "first-page": "44",
+            "article-title": "A study of distributed SDN controller based on Apache Kafka",
+            "author": "Moon",
+            "year": "2020"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.future.2023.12.028_b4",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1145/3486221",
+            "article-title": "Orchestration in fog computing: A comprehensive survey",
+            "volume": "55",
+            "author": "Costa",
+            "year": "2022",
+            "journal-title": "ACM Comput. Surv."
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.future.2023.12.028_b5",
+            "doi-asserted-by": "crossref",
+            "first-page": "20",
+            "DOI": "10.1109/MCOM.2019.1800235",
+            "article-title": "Fog computing enabled future mobile communication networks: A convergence of communication and computing",
+            "volume": "57",
+            "author": "Zhou",
+            "year": "2019",
+            "journal-title": "IEEE Commun. Mag."
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b6",
+            "doi-asserted-by": "crossref",
+            "first-page": "85333",
+            "DOI": "10.1109/ACCESS.2023.3303810",
+            "article-title": "A survey on networked data streaming with Apache Kafka",
+            "volume": "11",
+            "author": "Raptis",
+            "year": "2023",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b7",
+            "article-title": "Evaluating NiFi and MQTT based serverless data pipelines in fog computing environments",
+            "author": "Mirampalli",
+            "year": "2023",
+            "journal-title": "Future Gener. Comput. Syst."
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b8",
+            "first-page": "1",
+            "article-title": "A study on big data collecting and utilizing smart factory based grid networking big data using Apache Kafka",
+            "author": "Park",
+            "year": "2023",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.future.2023.12.028_b9",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3390/s19010134",
+            "article-title": "Improvement of Kafka streaming using partition and multi-threading in big data environment",
+            "volume": "19",
+            "author": "Leang",
+            "year": "2019",
+            "journal-title": "Sensors"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b10",
+            "series-title": "Proceedings of the 11th International Conference on Advances in Information Technology",
+            "article-title": "Enhancement of fault tolerance in Kafka pipeline architecture",
+            "author": "Aung",
+            "year": "2020"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.future.2023.12.028_b11",
+            "doi-asserted-by": "crossref",
+            "first-page": "43",
+            "DOI": "10.3390/fi15020043",
+            "article-title": "Engineering resource-efficient data management for smart cities with Apache Kafka",
+            "volume": "15",
+            "author": "Raptis",
+            "year": "2023",
+            "journal-title": "Future Internet"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b12",
+            "series-title": "Proceedings of the 2021 International Conference on Management of Data",
+            "first-page": "2602",
+            "article-title": "Consistency and completeness: Rethinking distributed stream processing in Apache Kafka",
+            "author": "Wang",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b13",
+            "series-title": "Information and Software Technologies",
+            "first-page": "33",
+            "article-title": "Real-time anomaly detection for distributed systems logs using Apache Kafka and H2O.ai",
+            "author": "Daugėla",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b14",
+            "series-title": "Proceedings of the 5th International Conference on Computer Science and Software Engineering",
+            "first-page": "180",
+            "article-title": "ACT-SAGAN: Automatic configuration tuning for Kafka with self-attention generative adversarial networks",
+            "author": "Huang",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b15",
+            "series-title": "2022 International Conference on Computer, Information and Telecommunication Systems",
+            "first-page": "1",
+            "article-title": "On efficiently partitioning a topic in Apache Kafka",
+            "author": "Raptis",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b16",
+            "series-title": "7th Conference on the Engineering of Computer Based Systems",
+            "article-title": "Modeling and verifying producer-consumer communication in Kafka using CSP",
+            "author": "Xu",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b17",
+            "series-title": "How to choose the number of topics/partitions in a Kafka cluster?",
+            "author": "Rao",
+            "year": "2015"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b18",
+            "doi-asserted-by": "crossref",
+            "unstructured": "H. Wu, Z. Shang, K. Wolter, Performance Prediction for the Apache Kafka Messaging System, in: 2019 IEEE 21st International Conference on High Performance Computing and Communications; IEEE 17th International Conference on Smart City; IEEE 5th International Conference on Data Science and Systems, HPCC/SmartCity/DSS, 2019, pp. 154–161, http://dx.doi.org/10.1109/HPCC/SmartCity/DSS.2019.00036.",
+            "DOI": "10.1109/HPCC/SmartCity/DSS.2019.00036"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b19",
+            "series-title": "Kafka consumer group autoscaler",
+            "author": "Landau",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b20",
+            "series-title": "Web Information Systems and Applications",
+            "first-page": "119",
+            "article-title": "A novel adaptive tuning mechanism for Kafka-based ordering service",
+            "author": "Xu",
+            "year": "2019"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b21",
+            "series-title": "NOMS 2018 - 2018 IEEE/IFIP Network Operations and Management Symposium",
+            "first-page": "1",
+            "article-title": "Design and implementation of a load shedding engine for solving starvation problems in Apache Kafka",
+            "author": "Bang",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b22",
+            "series-title": "Proceedings of the 10th International Conference on Simulation and Modeling Methodologies, Technologies and Applications - SIMULTECH",
+            "first-page": "171",
+            "article-title": "Modeling and simulation as a service using Apache Kafka",
+            "author": "Gütlein.",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b23",
+            "series-title": "99Th percentile latency at scale with Apache Kafka",
+            "author": "Povzner",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b24",
+            "series-title": "Optimizing kafka performance",
+            "author": "Salinger",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b25",
+            "series-title": "NOMS 2023-2023 IEEE/IFIP Network Operations and Management Symposium",
+            "first-page": "1",
+            "article-title": "A comprehensive performance analysis of stream processing with Kafka in cloud native deployments for IoT use-cases",
+            "author": "Pelle",
+            "year": "2023"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b26",
+            "series-title": "Benchmarking Apache Kafka: 2 million writes per second (on three cheap machines)",
+            "author": "Kreps",
+            "year": "2014"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b27",
+            "series-title": "Apache Kafka supports 200K partitions per cluster",
+            "author": "Rao",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.future.2023.12.028_b28",
+            "series-title": "Performance optimization for Apache Kafka HDInsight clusters",
+            "year": "2021"
+          }
+        ],
+        "container-title": [
+          "Future Generation Computer Systems"
+        ],
+        "original-title": [],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0167739X23004892?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0167739X23004892?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              29
+            ]
+          ],
+          "date-time": "2025-09-29T04:43:23Z",
+          "timestamp": 1759121003000
+        },
+        "score": 1,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0167739X23004892"
+          }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              5
+            ]
+          ]
+        },
+        "references-count": 28,
+        "alternative-id": [
+          "S0167739X23004892"
+        ],
+        "URL": "https://doi.org/10.1016/j.future.2023.12.028",
+        "relation": {},
+        "ISSN": [
+          "0167-739X"
+        ],
+        "issn-type": [
+          {
+            "value": "0167-739X",
+            "type": "print"
+          }
+        ],
+        "subject": [],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Efficient topic partitioning of Apache Kafka for high-reliability real-time data streaming applications",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Future Generation Computer Systems",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.future.2023.12.028",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2023 The Author(s). Published by Elsevier B.V.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      "metadatos": "COINCIDEN",
+      "resolucion_doi": {
+        "http": 302,
+        "destino": "https://linkinghub.elsevier.com/retrieve/pii/S0167739X23004892"
+      },
+      "destino_editorial_registrado": "https://linkinghub.elsevier.com/retrieve/pii/S0167739X23004892",
+      "destino_coincide_registro": true,
+      "acceso_editorial": {
+        "estado": "LIMITADO",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      }
     },
     {
       "clave": "henning2024scalability",
       "doi": "10.1016/j.jss.2023.111879",
-      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "tipo_bib": "article",
+      "estado": "METADATOS_Y_REDIRECCION_OK",
       "discrepancias": [],
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "crossref": {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2026-11-10T04:12:40Z",
+          "timestamp": 1794283960240,
+          "version": "4.9.0"
+        },
+        "reference-count": 91,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  2,
+                  1
+                ]
+              ],
+              "date-time": "2024-02-01T00:00:00Z",
+              "timestamp": 1706745600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  2,
+                  1
+                ]
+              ],
+              "date-time": "2024-02-01T00:00:00Z",
+              "timestamp": 1706745600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  10,
+                  22
+                ]
+              ],
+              "date-time": "2023-10-22T00:00:00Z",
+              "timestamp": 1697932800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100013695",
+            "name": "Johannes Kepler University Linz",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100013695",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Journal of Systems and Software"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              2
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.jss.2023.111879",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              10,
+              24
+            ]
+          ],
+          "date-time": "2023-10-24T11:49:35Z",
+          "timestamp": 1698148175000
+        },
+        "page": "111879",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 44,
+        "special_numbering": "C",
+        "title": [
+          "Benchmarking scalability of stream processing frameworks deployed as microservices in the cloud"
+        ],
+        "prefix": "10.1016",
+        "volume": "208",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-6912-2549",
+            "authenticated-orcid": false,
+            "given": "Sören",
+            "family": "Henning",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6625-4335",
+            "authenticated-orcid": false,
+            "given": "Wilhelm",
+            "family": "Hasselbring",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b1",
+            "doi-asserted-by": "crossref",
+            "first-page": "3135",
+            "DOI": "10.14778/3476311.3476389",
+            "article-title": "Watermarks in stream processing systems: Semantics and comparative analysis of Apache Flink and Google Cloud Dataflow",
+            "volume": "14",
+            "author": "Akidau",
+            "year": "2021",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b2",
+            "doi-asserted-by": "crossref",
+            "first-page": "1792",
+            "DOI": "10.14778/2824032.2824076",
+            "article-title": "The dataflow model: A practical approach to balancing correctness, latency, and cost in massive-scale, unbounded, out-of-order data processing",
+            "volume": "8",
+            "author": "Akidau",
+            "year": "2015",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "issue": "6",
+            "key": "10.1016/j.jss.2023.111879_b3",
+            "doi-asserted-by": "crossref",
+            "first-page": "939",
+            "DOI": "10.1007/s00778-014-0357-y",
+            "article-title": "The stratosphere platform for big data analytics",
+            "volume": "23",
+            "author": "Alexandrov",
+            "year": "2014",
+            "journal-title": "VLDB J."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b4",
+            "series-title": "Nexmark benchmark suite",
+            "author": "Apache Software Foundation",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b5",
+            "series-title": "Proceedings of the Thirtieth International Conference on Very Large Data Bases - Volume 30",
+            "first-page": "480",
+            "article-title": "Linear road: A stream data management benchmark",
+            "author": "Arasu",
+            "year": "2004"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.jss.2023.111879_b6",
+            "doi-asserted-by": "crossref",
+            "first-page": "42",
+            "DOI": "10.1109/MS.2016.64",
+            "article-title": "Microservices architecture enables DevOps: Migration to a cloud-native architecture",
+            "volume": "33",
+            "author": "Balalaie",
+            "year": "2016",
+            "journal-title": "IEEE Softw."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b7",
+            "series-title": "Advances in Service-Oriented and Cloud Computing",
+            "first-page": "201",
+            "article-title": "Migrating to cloud-native architectures using microservices: An experience report",
+            "author": "Balalaie",
+            "year": "2016"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b8",
+            "series-title": "Building Event-Driven Microservices",
+            "author": "Bellemare",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b9",
+            "series-title": "Scalability Benchmarking of Stream Processing Engines with Apache Beam",
+            "author": "Bensien",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b10",
+            "series-title": "Cloud Service Benchmarking: Measuring Quality of Cloud Services from a Client Perspective",
+            "author": "Bermbach",
+            "year": "2017"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b11",
+            "doi-asserted-by": "crossref",
+            "first-page": "222900",
+            "DOI": "10.1109/ACCESS.2020.3043948",
+            "article-title": "DSPBench: A suite of benchmark applications for distributed data stream processing systems",
+            "volume": "8",
+            "author": "Bordin",
+            "year": "2020",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.jss.2023.111879_b12",
+            "doi-asserted-by": "crossref",
+            "first-page": "50",
+            "DOI": "10.1109/MS.2018.2141026",
+            "article-title": "From monolithic to microservices: An experience report from the banking domain",
+            "volume": "35",
+            "author": "Bucchiarone",
+            "year": "2018",
+            "journal-title": "IEEE Softw."
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b13",
+            "doi-asserted-by": "crossref",
+            "first-page": "50",
+            "DOI": "10.1145/2890784",
+            "article-title": "Borg, Omega, and Kubernetes",
+            "volume": "59",
+            "author": "Burns",
+            "year": "2016",
+            "journal-title": "Commun. ACM"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b14",
+            "doi-asserted-by": "crossref",
+            "first-page": "1718",
+            "DOI": "10.14778/3137765.3137777",
+            "article-title": "State management in Apache Flink®: Consistent stateful distributed stream processing",
+            "volume": "10",
+            "author": "Carbone",
+            "year": "2017",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/j.jss.2023.111879_b15",
+            "article-title": "Apache Flink: Stream and batch processing in a single engine",
+            "volume": "36",
+            "author": "Carbone",
+            "year": "2015",
+            "journal-title": "Bull. IEEE Comput. Soc. Tech. Comm. Data Eng."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b16",
+            "series-title": "2016 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW)",
+            "first-page": "1789",
+            "article-title": "Benchmarking streaming computation engines: Storm, Flink and Spark Streaming",
+            "author": "Chintapalli",
+            "year": "2016"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b17",
+            "doi-asserted-by": "crossref",
+            "first-page": "40977",
+            "DOI": "10.1109/ACCESS.2020.2976738",
+            "article-title": "Maximum sustainable throughput evaluation using an adaptive method for stream processing platforms",
+            "volume": "8",
+            "author": "Chu",
+            "year": "2020",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b18",
+            "series-title": "CNCF annual survey 2021",
+            "author": "Cloud Native Computing Foundation",
+            "year": "2022"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b19",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1145/3408314",
+            "article-title": "Big data systems: A software engineering perspective",
+            "volume": "53",
+            "author": "Davoudian",
+            "year": "2020",
+            "journal-title": "ACM Comput. Surv."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b20",
+            "series-title": "A survey on the evolution of stream processing systems",
+            "author": "Fragkoulis",
+            "year": "2023"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b21",
+            "series-title": "2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)",
+            "first-page": "481",
+            "article-title": "Microservices migration in industry: Intentions, strategies, and challenges",
+            "author": "Fritzsch",
+            "year": "2019"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b22",
+            "doi-asserted-by": "crossref",
+            "first-page": "16",
+            "DOI": "10.1109/MCC.2017.4250939",
+            "article-title": "Cloud-native applications",
+            "volume": "4",
+            "author": "Gannon",
+            "year": "2017",
+            "journal-title": "IEEE Cloud Comput."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b23",
+            "series-title": "2022 30th Euromicro International Conference on Parallel, Distributed and Network-Based Processing (PDP)",
+            "first-page": "10",
+            "article-title": "Evaluating micro-batch and data frequency for stream processing applications on multi-cores",
+            "author": "Garcia",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b24",
+            "article-title": "SPBench: a framework for creating benchmarks of stream processing applications",
+            "author": "Garcia",
+            "year": "2022",
+            "journal-title": "Computing"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b25",
+            "doi-asserted-by": "crossref",
+            "first-page": "3110",
+            "DOI": "10.14778/3476311.3476387",
+            "article-title": "Hazelcast Jet: Low-latency stream processing at the 99.99th percentile",
+            "volume": "14",
+            "author": "Gencer",
+            "year": "2021",
+            "journal-title": "Proceedings of the VLDB Endowment"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b26",
+            "series-title": "The Essence of Software Engineering",
+            "first-page": "169",
+            "article-title": "Software architecture: Past, present, future",
+            "author": "Hasselbring",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b27",
+            "series-title": "Evaluation and Assessment in Software Engineering",
+            "first-page": "457",
+            "article-title": "Benchmarking as empirical standard in software engineering research",
+            "author": "Hasselbring",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b28",
+            "series-title": "Proceedings of the IEEE International Conference on Software Architecture Workshops",
+            "first-page": "243",
+            "article-title": "Microservice architectures for scalability, agility and reliability in E-commerce",
+            "author": "Hasselbring",
+            "year": "2017"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b29",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.21941/kcss/2023/2",
+            "article-title": "Scalability benchmarking of cloud-native applications applied to event-driven microservices",
+            "author": "Henning",
+            "year": "2023"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b30",
+            "series-title": "Companion of the ACM/SPEC International Conference on Performance Engineering",
+            "first-page": "85",
+            "article-title": "How to measure scalability of distributed stream processing engines?",
+            "author": "Henning",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b31",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.bdr.2021.100209",
+            "article-title": "Theodolite: Scalability benchmarking of distributed stream processing engines in microservice architectures",
+            "volume": "25",
+            "author": "Henning",
+            "year": "2021",
+            "journal-title": "Big Data Res."
+          },
+          {
+            "issue": "6",
+            "key": "10.1016/j.jss.2023.111879_b32",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1007/s10664-022-10162-1",
+            "article-title": "A configurable method for benchmarking scalability of cloud-native applications",
+            "volume": "27",
+            "author": "Henning",
+            "year": "2022",
+            "journal-title": "Empir. Softw. Eng."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b33",
+            "series-title": "2022 IEEE International Conference on Cloud Engineering (IC2E)",
+            "first-page": "275",
+            "article-title": "Demo paper: Benchmarking scalability of cloud-native applications with Theodolite",
+            "author": "Henning",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b34",
+            "series-title": "Replication package for: Benchmarking scalability of stream processing frameworks deployed as microservices in the cloud",
+            "author": "Henning",
+            "year": "2023"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.jss.2023.111879_b35",
+            "doi-asserted-by": "crossref",
+            "first-page": "65",
+            "DOI": "10.1007/s42488-021-00043-5",
+            "article-title": "Goals and measures for analyzing power consumption data in manufacturing enterprises",
+            "volume": "3",
+            "author": "Henning",
+            "year": "2021",
+            "journal-title": "J. Data Inf. Manage."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b36",
+            "series-title": "International Conference on Autonomic Computing",
+            "first-page": "23",
+            "article-title": "Elasticity in cloud computing: What it is, and what it is not",
+            "author": "Herbst",
+            "year": "2013"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b37",
+            "series-title": "2015 IEEE 21st International Conference on Parallel and Distributed Systems (ICPADS)",
+            "first-page": "797",
+            "article-title": "Conceptual survey on data stream processing systems",
+            "author": "Hesse",
+            "year": "2015"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b38",
+            "series-title": "2019 IEEE 39th International Conference on Distributed Computing Systems (ICDCS)",
+            "first-page": "1381",
+            "article-title": "Quantitative impact evaluation of an abstraction layer for data stream processing systems",
+            "author": "Hesse",
+            "year": "2019"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b39",
+            "series-title": "Proceedings of the ACM/SPEC International Conference on Performance Engineering",
+            "first-page": "201",
+            "article-title": "ESPBench: The enterprise stream processing benchmark",
+            "author": "Hesse",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b40",
+            "series-title": "Performance Evaluation and Benchmarking for the Analytics Era",
+            "first-page": "25",
+            "article-title": "Senska – towards an enterprise streaming benchmark",
+            "author": "Hesse",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b41",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.jss.2021.111014",
+            "article-title": "Deployment and communication patterns in microservice architectures: A systematic literature review",
+            "volume": "180",
+            "author": "Karabey Aksakalli",
+            "year": "2021",
+            "journal-title": "J. Syst. Softw."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b42",
+            "series-title": "2017 International Conference on Computer and Applications (ICCA)",
+            "first-page": "1",
+            "article-title": "A comparison of stream processing frameworks",
+            "author": "Karakaya",
+            "year": "2017"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b43",
+            "series-title": "2018 IEEE 34th International Conference on Data Engineering (ICDE)",
+            "first-page": "1507",
+            "article-title": "Benchmarking distributed stream data processing systems",
+            "author": "Karimov",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b44",
+            "series-title": "Advances in Database Technology - 22nd International Conference on Extending Database Technology",
+            "first-page": "682",
+            "article-title": "Operational stream processing: Towards scalable and consistent event-driven applications",
+            "author": "Katsifodimos",
+            "year": "2019"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b45",
+            "doi-asserted-by": "crossref",
+            "first-page": "43",
+            "DOI": "10.1145/3312527",
+            "article-title": "Online event processing",
+            "volume": "62",
+            "author": "Kleppmann",
+            "year": "2019",
+            "journal-title": "Commun. ACM"
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/j.jss.2023.111879_b46",
+            "article-title": "Kafka, Samza and the Unix philosophy of distributed data",
+            "volume": "36",
+            "author": "Kleppmann",
+            "year": "2015",
+            "journal-title": "Bull. IEEE Comput. Soc. Tech. Comm. Data Eng."
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.jss.2023.111879_b47",
+            "first-page": "1",
+            "article-title": "Drivers and barriers for microservice adoption – A survey among professionals in Germany",
+            "volume": "14",
+            "author": "Knoche",
+            "year": "2019",
+            "journal-title": "Enterpr. Model. Inf. Syst. Archit. (EMISAJ) – Int. J. Concept. Model."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b48",
+            "series-title": "Systems Benchmarking: For Scientists and Engineers",
+            "author": "Kounev",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b49",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.jss.2017.01.001",
+            "article-title": "Understanding cloud-native applications after 10 years of cloud computing - A systematic mapping study",
+            "volume": "126",
+            "author": "Kratzke",
+            "year": "2017",
+            "journal-title": "J. Syst. Softw."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b50",
+            "unstructured": "Kreps, J., Narkhede, N., Rao, J., 2011. Kafka: A distributed messaging system for log processing. In: Proceedings of the International Workshop on Networking Meets Databases."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b51",
+            "series-title": "Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data",
+            "first-page": "239",
+            "article-title": "Twitter Heron: Stream processing at scale",
+            "author": "Kulkarni",
+            "year": "2015"
+          },
+          {
+            "issue": "13",
+            "key": "10.1016/j.jss.2023.111879_b52",
+            "doi-asserted-by": "crossref",
+            "first-page": "3348",
+            "DOI": "10.14778/3484224.3484232",
+            "article-title": "Data management in microservices: State of the practice, challenges, and research directions",
+            "volume": "14",
+            "author": "Laigner",
+            "year": "2021",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b53",
+            "series-title": "Proceedings of the 11th International ACM SIGSOFT Conference on Quality of Software Architectures",
+            "first-page": "83",
+            "article-title": "Scalability, elasticity, and efficiency in cloud computing: A systematic literature review of definitions and metrics",
+            "author": "Lehrig",
+            "year": "2015"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b54",
+            "series-title": "Proceedings of the 12th ACM International Conference on Computing Frontiers",
+            "article-title": "SparkBench: A comprehensive benchmarking suite for in memory data analytic platform spark",
+            "author": "Li",
+            "year": "2015"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b55",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.infsof.2020.106449",
+            "article-title": "Understanding and addressing quality attributes of microservices architecture: A systematic literature review",
+            "volume": "131",
+            "author": "Li",
+            "year": "2021",
+            "journal-title": "Inf. Softw. Technol."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b56",
+            "series-title": "2016 IEEE Global Communications Conference (GLOBECOM)",
+            "first-page": "1",
+            "article-title": "A performance comparison of open-source stream processing platforms",
+            "author": "Lopez",
+            "year": "2016"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b57",
+            "series-title": "2014 IEEE/ACM 7th International Conference on Utility and Cloud Computing",
+            "first-page": "69",
+            "article-title": "Stream Bench: Towards benchmarking modern distributed stream computing frameworks",
+            "author": "Lu",
+            "year": "2014"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b58",
+            "series-title": "A model and survey of distributed data-intensive systems",
+            "author": "Margara",
+            "year": "2022"
+          },
+          {
+            "issue": "52",
+            "key": "10.1016/j.jss.2023.111879_b59",
+            "article-title": "Evaluation of distributed stream processing frameworks for IoT applications in smart cities",
+            "volume": "6",
+            "author": "Nasiri",
+            "year": "2019",
+            "journal-title": "J. Big Data"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b60",
+            "doi-asserted-by": "crossref",
+            "first-page": "1634",
+            "DOI": "10.14778/3137765.3137770",
+            "article-title": "Samza: Stateful scalable stream processing at LinkedIn",
+            "volume": "10",
+            "author": "Noghabi",
+            "year": "2017",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b61",
+            "series-title": "2020 20th IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing (CCGRID)",
+            "first-page": "61",
+            "article-title": "NAMB: A quick and flexible stream processing application prototype generator",
+            "author": "Pagliari",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b62",
+            "series-title": "Proceedings of the 6th International Conference on Cloud Computing and Services Science - Volume 1",
+            "first-page": "137",
+            "article-title": "Microservices: A systematic mapping study",
+            "author": "Pahl",
+            "year": "2016"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.jss.2023.111879_b63",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1145/3104028",
+            "article-title": "Architectural principles for cloud software",
+            "volume": "18",
+            "author": "Pahl",
+            "year": "2018",
+            "journal-title": "ACM Trans. Internet Technol."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b64",
+            "series-title": "2022 IEEE International Conference on Cloud Engineering (IC2E)",
+            "first-page": "67",
+            "article-title": "Streaming vs. Functions: A cost perspective on cloud event processing",
+            "author": "Pfandzelter",
+            "year": "2022"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b65",
+            "series-title": "2016 IEEE International Conference on Industrial Technology (ICIT)",
+            "first-page": "592",
+            "article-title": "Benchmarking modern distributed streaming platforms",
+            "author": "Qian",
+            "year": "2016"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b66",
+            "series-title": "Empirical standards for software engineering research",
+            "author": "Ralph",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b67",
+            "series-title": "Performance Optimizations and Operator Semantics for Streaming Data Flow Programs",
+            "author": "Sax",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b68",
+            "series-title": "Proc. International Workshop on Real-Time Business Intelligence and Analytics",
+            "first-page": "1",
+            "article-title": "Streams and tables: Two sides of the same coin",
+            "author": "Sax",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b69",
+            "series-title": "2019 IEEE 35th International Conference on Data Engineering Workshops (ICDEW)",
+            "first-page": "53",
+            "article-title": "Big stream processing systems: An experimental evaluation",
+            "author": "Shahverdi",
+            "year": "2019"
+          },
+          {
+            "issue": "21",
+            "key": "10.1016/j.jss.2023.111879_b70",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1002/cpe.4257",
+            "article-title": "RIoTBench: An IoT benchmark for distributed stream processing systems",
+            "volume": "29",
+            "author": "Shukla",
+            "year": "2017",
+            "journal-title": "Concurr. Comput.: Pract. Exper."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b71",
+            "doi-asserted-by": "crossref",
+            "first-page": "215",
+            "DOI": "10.1016/j.jss.2018.09.082",
+            "article-title": "The pains and gains of microservices: A systematic grey literature review",
+            "volume": "146",
+            "author": "Soldani",
+            "year": "2018",
+            "journal-title": "J. Syst. Softw."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b72",
+            "series-title": "Performance Analysis and Improvements for Apache Beam",
+            "author": "Spæren",
+            "year": "2021"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b73",
+            "series-title": "Designing Event-Driven Systems",
+            "author": "Stopford",
+            "year": "2018"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b74",
+            "doi-asserted-by": "crossref",
+            "first-page": "22",
+            "DOI": "10.1109/MCC.2017.4250931",
+            "article-title": "Processes, motivations, and issues for migrating to microservices architectures: An empirical investigation",
+            "volume": "4",
+            "author": "Taibi",
+            "year": "2017",
+            "journal-title": "IEEE Cloud Comput."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b75",
+            "series-title": "Proceedings of the 2014 ACM SIGMOD International Conference on Management of Data",
+            "first-page": "147",
+            "article-title": "Storm@twitter",
+            "author": "Toshniwal",
+            "year": "2014"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b76",
+            "series-title": "2018 IEEE 11th International Conference on Cloud Computing (CLOUD)",
+            "first-page": "754",
+            "article-title": "Performance analysis of large-scale distributed stream processing systems on the cloud",
+            "author": "Truong",
+            "year": "2018"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b77",
+            "series-title": "NEXMark – A benchmark for queries over data streams (draft)",
+            "author": "Tucker",
+            "year": "2010"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b78",
+            "series-title": "Open Stream Processing Benchmark: An Extensive Analysis of Distributed Stream Processing Frameworks",
+            "author": "van Dongen",
+            "year": "2021"
+          },
+          {
+            "issue": "8",
+            "key": "10.1016/j.jss.2023.111879_b79",
+            "doi-asserted-by": "crossref",
+            "first-page": "1845",
+            "DOI": "10.1109/TPDS.2020.2978480",
+            "article-title": "Evaluation of stream processing frameworks",
+            "volume": "31",
+            "author": "van Dongen",
+            "year": "2020",
+            "journal-title": "IEEE Trans. Parallel Distrib. Syst."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b80",
+            "doi-asserted-by": "crossref",
+            "first-page": "109413",
+            "DOI": "10.1109/ACCESS.2021.3102645",
+            "article-title": "Influencing factors in the scalability of distributed stream processing jobs",
+            "volume": "9",
+            "author": "van Dongen",
+            "year": "2021",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b81",
+            "doi-asserted-by": "crossref",
+            "first-page": "93745",
+            "DOI": "10.1109/ACCESS.2021.3093208",
+            "article-title": "A performance analysis of fault recovery in stream processing frameworks",
+            "volume": "9",
+            "author": "van Dongen",
+            "year": "2021",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b82",
+            "doi-asserted-by": "crossref",
+            "first-page": "207",
+            "DOI": "10.1016/j.future.2020.07.012",
+            "article-title": "Performance evaluation of real-time stream processing systems for Internet of Things applications",
+            "volume": "113",
+            "author": "Vikash",
+            "year": "2020",
+            "journal-title": "Future Gener. Comput. Syst."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b83",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Vogel, A., Henning, S., Ertl, O., Rabiser, R., 2023. A systematic mapping of performance in distributed stream processing systems. In: 2023 49th Euromicro Conference on Software Engineering and Advanced Applications (SEAA). pp. 293–300. http://dx.doi.org/10.1109/SEAA60479.2023.00052, In press..",
+            "DOI": "10.1109/SEAA60479.2023.00052"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b84",
+            "series-title": "Proceedings of the 2021 International Conference on Management of Data",
+            "first-page": "2602",
+            "article-title": "Consistency and completeness: Rethinking distributed stream processing in Apache Kafka",
+            "author": "Wang",
+            "year": "2021"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.jss.2023.111879_b85",
+            "doi-asserted-by": "crossref",
+            "first-page": "1654",
+            "DOI": "10.14778/2824032.2824063",
+            "article-title": "Building a replicated logging system with Apache Kafka",
+            "volume": "8",
+            "author": "Wang",
+            "year": "2015",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b86",
+            "series-title": "Euro-Par 2017: Parallel Processing Workshops",
+            "first-page": "141",
+            "article-title": "Scalability and state: A critical assessment of throughput obtainable on big data streaming frameworks for applications with and without state information",
+            "volume": "vol. 10659",
+            "author": "Yang",
+            "year": "2017"
+          },
+          {
+            "issue": "11",
+            "key": "10.1016/j.jss.2023.111879_b87",
+            "doi-asserted-by": "crossref",
+            "first-page": "56",
+            "DOI": "10.1145/2934664",
+            "article-title": "Apache Spark: A unified engine for big data processing",
+            "volume": "59",
+            "author": "Zaharia",
+            "year": "2016",
+            "journal-title": "Commun. ACM"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.jss.2023.111879_b88",
+            "doi-asserted-by": "crossref",
+            "first-page": "516",
+            "DOI": "10.14778/3303753.3303758",
+            "article-title": "Analyzing efficient stream processing on modern hardware",
+            "volume": "12",
+            "author": "Zeuch",
+            "year": "2019",
+            "journal-title": "Proc. VLDB Endow."
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b89",
+            "series-title": "2017 IEEE 33rd International Conference on Data Engineering (ICDE)",
+            "first-page": "659",
+            "article-title": "Revisiting the design of data stream processing systems on multi-core processors",
+            "author": "Zhang",
+            "year": "2017"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b90",
+            "series-title": "Building a better and faster Beam Samza runner",
+            "author": "Zhang",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.jss.2023.111879_b91",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.jss.2022.111521",
+            "article-title": "Revisiting the practices and pains of microservice architecture in reality: An industrial inquiry",
+            "volume": "195",
+            "author": "Zhou",
+            "year": "2023",
+            "journal-title": "J. Syst. Softw."
+          }
+        ],
+        "container-title": [
+          "Journal of Systems and Software"
+        ],
+        "original-title": [],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0164121223002741?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0164121223002741?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              27
+            ]
+          ],
+          "date-time": "2025-09-27T23:35:14Z",
+          "timestamp": 1759016114000
+        },
+        "score": 1,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0164121223002741"
+          }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              2
+            ]
+          ]
+        },
+        "references-count": 91,
+        "alternative-id": [
+          "S0164121223002741"
+        ],
+        "URL": "https://doi.org/10.1016/j.jss.2023.111879",
+        "relation": {},
+        "ISSN": [
+          "0164-1212"
+        ],
+        "issn-type": [
+          {
+            "value": "0164-1212",
+            "type": "print"
+          }
+        ],
+        "subject": [],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              2
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Benchmarking scalability of stream processing frameworks deployed as microservices in the cloud",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Journal of Systems and Software",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.jss.2023.111879",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2023 The Author(s). Published by Elsevier Inc.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ],
+        "article-number": "111879"
+      },
+      "metadatos": "COINCIDEN",
+      "resolucion_doi": {
+        "http": 302,
+        "destino": "https://linkinghub.elsevier.com/retrieve/pii/S0164121223002741"
+      },
+      "destino_editorial_registrado": "https://linkinghub.elsevier.com/retrieve/pii/S0164121223002741",
+      "destino_coincide_registro": true,
+      "acceso_editorial": {
+        "estado": "LIMITADO",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      }
     },
     {
       "clave": "vogel2024recovery",
       "doi": "10.1145/3629104.3666040",
-      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "tipo_bib": "inproceedings",
+      "estado": "METADATOS_Y_REDIRECCION_OK",
       "discrepancias": [],
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "crossref": {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T14:05:14Z",
+          "timestamp": 1791813914714,
+          "version": "4.3.4"
+        },
+        "publisher-location": "New York, NY, USA",
+        "reference-count": 25,
+        "publisher": "ACM",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  6,
+                  24
+                ]
+              ],
+              "date-time": "2024-06-24T00:00:00Z",
+              "timestamp": 1719187200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "dl.acm.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [],
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              24
+            ]
+          ]
+        },
+        "DOI": "10.1145/3629104.3666040",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              7,
+              22
+            ]
+          ],
+          "date-time": "2024-07-22T12:15:03Z",
+          "timestamp": 1721650503000
+        },
+        "page": "171-182",
+        "update-policy": "https://doi.org/10.1145/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 13,
+        "title": [
+          "A Comprehensive Benchmarking Analysis of Fault Recovery in Stream Processing Frameworks"
+        ],
+        "prefix": "10.1145",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-3299-2641",
+            "authenticated-orcid": false,
+            "given": "Adriano",
+            "family": "Vogel",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "JKU/Dynatrace Co-Innovation Lab, Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6912-2549",
+            "authenticated-orcid": false,
+            "given": "Sören",
+            "family": "Henning",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "JKU/Dynatrace Co-Innovation Lab, Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3572-686X",
+            "authenticated-orcid": false,
+            "given": "Esteban",
+            "family": "Perez-Wohlfeil",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Dynatrace Research, Dynatrace LLC, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7322-6332",
+            "authenticated-orcid": false,
+            "given": "Otmar",
+            "family": "Ertl",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Dynatrace Research, Dynatrace LLC, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3862-1112",
+            "authenticated-orcid": false,
+            "given": "Rick",
+            "family": "Rabiser",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "LIT CPS Lab, Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "320",
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              7,
+              22
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "e_1_3_2_1_1_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3183713.3190664"
+          },
+          {
+            "key": "e_1_3_2_1_2_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/MS.2016.60"
+          },
+          {
+            "key": "e_1_3_2_1_3_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/3137765.3137777"
+          },
+          {
+            "key": "e_1_3_2_1_4_1",
+            "volume-title": "Apache Flink: Stream and batch processing in a single engine. Bulletin of the IEEE Computer Society Technical Committee on Data Engineering 36, 4",
+            "author": "Carbone Paris",
+            "year": "2015",
+            "unstructured": "Paris Carbone, Asterios Katsifodimos, Stephan Ewen, Volker Markl, Seif Haridi, and Kostas Tzoumas. 2015. Apache Flink: Stream and batch processing in a single engine. Bulletin of the IEEE Computer Society Technical Committee on Data Engineering 36, 4 (2015)."
+          },
+          {
+            "key": "e_1_3_2_1_5_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/1327452.1327492"
+          },
+          {
+            "key": "e_1_3_2_1_6_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s00778-023-00819-8"
+          },
+          {
+            "key": "e_1_3_2_1_7_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.15439/2022F225"
+          },
+          {
+            "key": "e_1_3_2_1_8_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10664-022-10162-1"
+          },
+          {
+            "key": "e_1_3_2_1_9_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3629526.3645036"
+          },
+          {
+            "key": "e_1_3_2_1_10_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3381027"
+          },
+          {
+            "key": "e_1_3_2_1_11_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2528412"
+          },
+          {
+            "key": "e_1_3_2_1_12_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/GLOCOM.2016.7841533"
+          },
+          {
+            "key": "e_1_3_2_1_13_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/UCC.2014.15"
+          },
+          {
+            "key": "e_1_3_2_1_14_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICIT.2016.7474816"
+          },
+          {
+            "key": "e_1_3_2_1_15_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3242153.3242155"
+          },
+          {
+            "key": "e_1_3_2_1_16_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TDSC.2009.4"
+          },
+          {
+            "key": "e_1_3_2_1_17_1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "George Siachamis Kyriakos Psarakis Marios Fragkoulis Arie van Deursen Paris Carbone and Asterios Katsifodimos. 2024. CheckMate: Evaluating Checkpointing Protocols for Streaming Dataflows. arXiv:2403.13629 [cs.DC]",
+            "DOI": "10.1109/ICDE60146.2024.00309"
+          },
+          {
+            "key": "e_1_3_2_1_18_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3465480.3466923"
+          },
+          {
+            "key": "e_1_3_2_1_19_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/3489496.3489515"
+          },
+          {
+            "key": "e_1_3_2_1_20_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2021.3093208"
+          },
+          {
+            "key": "e_1_3_2_1_21_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/SEAA60479.2023.00052"
+          },
+          {
+            "key": "e_1_3_2_1_22_1",
+            "unstructured": "Adriano Vogel Sören Henning Esteban Perez-Wohlfeil Otmar Ertl and Rick Rabiser. 2024. High-level Stream Processing: A Complementary Analysis of Fault Recovery. arXiv:2405.07917 [cs.DC]"
+          },
+          {
+            "key": "e_1_3_2_1_23_1",
+            "doi-asserted-by": "publisher",
+            "unstructured": "Adriano Vogel Sören Henning Esteban Perez-Wohlfeil Otmar Ertl and Rick Rabiser. 2024. Replication Package for: A Comprehensive Benchmarking Analysis of Fault Recovery in Stream Processing Frameworks. https://doi.org/10.5281/zenodo.11348948",
+            "DOI": "10.5281/zenodo.11348948"
+          },
+          {
+            "key": "e_1_3_2_1_24_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3448016.3457556"
+          },
+          {
+            "key": "e_1_3_2_1_25_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11704-020-0248-x"
+          }
+        ],
+        "event": {
+          "name": "DEBS '24: The 18th ACM International Conference on Distributed and Event-based Systems",
+          "location": "Villeurbanne France",
+          "acronym": "DEBS '24",
+          "sponsor": [
+            "SIGMOD ACM Special Interest Group on Management of Data",
+            "SIGSOFT ACM Special Interest Group on Software Engineering"
+          ]
+        },
+        "container-title": [
+          "Proceedings of the 18th ACM International Conference on Distributed and Event-based Systems"
+        ],
+        "original-title": [],
+        "link": [
+          {
+            "URL": "https://dl.acm.org/doi/10.1145/3629104.3666040",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3629104.3666040",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              23
+            ]
+          ],
+          "date-time": "2025-08-23T01:44:15Z",
+          "timestamp": 1755913455000
+        },
+        "score": 1,
+        "resource": {
+          "primary": {
+            "URL": "https://dl.acm.org/doi/10.1145/3629104.3666040"
+          }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              24
+            ]
+          ]
+        },
+        "references-count": 25,
+        "alternative-id": [
+          "10.1145/3629104.3666040",
+          "10.1145/3629104"
+        ],
+        "URL": "https://doi.org/10.1145/3629104.3666040",
+        "relation": {},
+        "subject": [],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              24
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2024-07-22",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      "metadatos": "COINCIDEN",
+      "resolucion_doi": {
+        "http": 302,
+        "destino": "https://dl.acm.org/doi/10.1145/3629104.3666040"
+      },
+      "destino_editorial_registrado": "https://dl.acm.org/doi/10.1145/3629104.3666040",
+      "destino_coincide_registro": true,
+      "acceso_editorial": {
+        "estado": "LIMITADO",
+        "error": "HTTP Error 403: Forbidden"
+      }
     },
     {
       "clave": "chen2026tuning",
       "doi": "10.1145/3777911.3800636",
-      "estado": "BLOQUEADO_O_INCOMPLETO",
+      "tipo_bib": "inproceedings",
+      "estado": "METADATOS_Y_REDIRECCION_OK",
       "discrepancias": [],
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "crossref": {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2026-11-10T17:41:34Z",
+          "timestamp": 1794332494704,
+          "version": "4.9.0"
+        },
+        "publisher-location": "New York, NY, USA",
+        "reference-count": 34,
+        "publisher": "ACM",
+        "content-domain": {
+          "domain": [
+            "dl.acm.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1145/3777911.3800636",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T13:00:11Z",
+          "timestamp": 1776949211000
+        },
+        "page": "154-159",
+        "update-policy": "https://doi.org/10.1145/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Performance Optimization in Stream Processing Systems: Experiment-Driven Configuration Tuning for Kafka Streams"
+        ],
+        "prefix": "10.1145",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0009-1386-9083",
+            "authenticated-orcid": false,
+            "given": "David",
+            "family": "Chen",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6912-2549",
+            "authenticated-orcid": false,
+            "given": "Sören",
+            "family": "Henning",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Dynatrace Research, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9131-6849",
+            "authenticated-orcid": false,
+            "given": "Kassiano",
+            "family": "Matteussi",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "JKU/Dynatrace Co-Innovation Lab, Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3862-1112",
+            "authenticated-orcid": false,
+            "given": "Rick",
+            "family": "Rabiser",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "LIT CPS, Johannes Kepler University Linz, Linz, Austria"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "320",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              3
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "e_1_3_2_1_1_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/0-387-28356-0_7"
+          },
+          {
+            "key": "e_1_3_2_1_2_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3183713.3190664"
+          },
+          {
+            "key": "e_1_3_2_1_3_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.15587/2706-5448.2025.344185"
+          },
+          {
+            "key": "e_1_3_2_1_4_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3127479.3127492"
+          },
+          {
+            "key": "e_1_3_2_1_5_1",
+            "volume-title": "Bulletin of the IEEE Computer Society Technical Committee on Data Engineering",
+            "volume": "36",
+            "author": "Carbone Paris",
+            "year": "2015",
+            "unstructured": "Paris Carbone, Asterios Katsifodimos, Stephan Ewen, Volker Markl, Seif Haridi, and Kostas Tzoumas. 2015. Apache Flink: Stream and batch processing in a single engine. Bulletin of the IEEE Computer Society Technical Committee on Data Engineering, Vol. 36, 4 (2015)."
+          },
+          {
+            "key": "e_1_3_2_1_6_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3514496"
+          },
+          {
+            "key": "e_1_3_2_1_7_1",
+            "doi-asserted-by": "publisher",
+            "unstructured": "David Chen. 2025. Replication Package for: Automatic Parameter Optimization for Stream Processing Systems. https://doi.org/10.5281/zenodo.14901857",
+            "DOI": "10.5281/zenodo.14901857"
+          },
+          {
+            "key": "e_1_3_2_1_8_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2020.3042739"
+          },
+          {
+            "key": "e_1_3_2_1_9_1",
+            "volume-title": "Proceedings of the 2019 USENIX Conference on Usenix Annual Technical Conference (USENIX ATC '19). USENIX Association, 14 pages.",
+            "author": "Duplyakin Dmitry",
+            "year": "2019",
+            "unstructured": "Dmitry Duplyakin, Robert Ricci, Aleksander Maricq, Gary Wong, Jonathon Duerig, Eric Eide, Leigh Stoller, Mike Hibler, David Johnson, Kirk Webb, Aditya Akella, Kuangching Wang, Glenn Ricart, Larry Landweber, Chip Elliott, Michael Zink, Emmanuel Cecchet, Snigdhaswin Kar, and Prabodh Mishra. 2019. The design and operation of cloudlab. In Proceedings of the 2019 USENIX Conference on Usenix Annual Technical Conference (USENIX ATC '19). USENIX Association, 14 pages."
+          },
+          {
+            "key": "e_1_3_2_1_10_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CLUSTER.2015.13"
+          },
+          {
+            "key": "e_1_3_2_1_11_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s00778-023-00819-8"
+          },
+          {
+            "key": "e_1_3_2_1_12_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.bdr.2021.100209"
+          },
+          {
+            "key": "e_1_3_2_1_13_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10664-022-10162-1"
+          },
+          {
+            "key": "e_1_3_2_1_14_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.jss.2023.111879"
+          },
+          {
+            "key": "e_1_3_2_1_15_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3629526.3645036"
+          },
+          {
+            "key": "e_1_3_2_1_16_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3696630.3728563"
+          },
+          {
+            "key": "e_1_3_2_1_17_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3381027"
+          },
+          {
+            "key": "e_1_3_2_1_18_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/MASCOTS.2016.17"
+          },
+          {
+            "key": "e_1_3_2_1_19_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.future.2025.108247"
+          },
+          {
+            "key": "e_1_3_2_1_20_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3776581"
+          },
+          {
+            "key": "e_1_3_2_1_21_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s22134756"
+          },
+          {
+            "key": "e_1_3_2_1_22_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10182-010-0144-z"
+          },
+          {
+            "key": "e_1_3_2_1_23_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3242153.3242155"
+          },
+          {
+            "key": "e_1_3_2_1_24_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/0470018860.s00015"
+          },
+          {
+            "key": "e_1_3_2_1_25_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/3712221.3712227"
+          },
+          {
+            "key": "e_1_3_2_1_26_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2588555.2595641"
+          },
+          {
+            "key": "e_1_3_2_1_27_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TPDS.2020.2978480"
+          },
+          {
+            "key": "e_1_3_2_1_28_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/cpe.6759"
+          },
+          {
+            "key": "e_1_3_2_1_29_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/SEAA60479.2023.00052"
+          },
+          {
+            "key": "e_1_3_2_1_30_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3629104.3666040"
+          },
+          {
+            "key": "e_1_3_2_1_31_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.31110/COLINS/2024-2/009"
+          },
+          {
+            "key": "e_1_3_2_1_32_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3448016.3457556"
+          },
+          {
+            "key": "e_1_3_2_1_33_1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3689031.3696085"
+          },
+          {
+            "key": "e_1_3_2_1_34_1",
+            "unstructured": "Byzek Yewa. 2020. Best Practices for Developing Apache Kafka® Applications on Confluent Cloud. https://www.confluent.io/resources/ebook/recommendations-developers-using-confluent-cloud/"
+          }
+        ],
+        "event": {
+          "name": "ICPE '26: 17th ACM/SPEC International Conference on Performance Engineering",
+          "location": "Florence Italy",
+          "sponsor": [
+            "SIGSOFT ACM Special Interest Group on Software Engineering",
+            "SIGMETRICS ACM Special Interest Group on Measurement and Evaluation",
+            "SPEC"
+          ]
+        },
+        "container-title": [
+          "Companion of the 17th ACM/SPEC International Conference on Performance Engineering"
+        ],
+        "original-title": [],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              28
+            ]
+          ],
+          "date-time": "2026-04-28T13:05:59Z",
+          "timestamp": 1777381559000
+        },
+        "score": 1,
+        "resource": {
+          "primary": {
+            "URL": "https://dl.acm.org/doi/10.1145/3777911.3800636"
+          }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              3
+            ]
+          ]
+        },
+        "references-count": 34,
+        "alternative-id": [
+          "10.1145/3777911.3800636",
+          "10.1145/3777911"
+        ],
+        "URL": "https://doi.org/10.1145/3777911.3800636",
+        "relation": {},
+        "subject": [],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              3
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-05-03",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      "metadatos": "COINCIDEN",
+      "resolucion_doi": {
+        "http": 302,
+        "destino": "https://dl.acm.org/doi/10.1145/3777911.3800636"
+      },
+      "destino_editorial_registrado": "https://dl.acm.org/doi/10.1145/3777911.3800636",
+      "destino_coincide_registro": true,
+      "acceso_editorial": {
+        "estado": "LIMITADO",
+        "error": "HTTP Error 403: Forbidden"
+      }
     }
   ],
-  "nota": "Este cotejo automático no sustituye comprobar fascículo, nombre completo de autores, indexación, lectura y correspondencia de cada cita con el artículo."
+  "nota": "OK acredita cotejo de nombres y orden, título, publicación, tipo, volumen, fascículo, páginas/eid, año y destino DOI registrado. No acredita acceso integral, lectura personal, indexación ni la validez de cada afirmación del informe. Una respuesta editorial 202 tampoco prueba lectura del artículo."
 }

@@ -1,0 +1,162 @@
+{
+  "fecha_utc": "2026-11-14T01:52:13.882221+00:00",
+  "estado": "NO_LISTO_PARA_ENTREGA",
+  "advertencia": "Este control no acredita autoría, lectura, indexación, acceso público actual, video, permisos ni entrega en SGA. No sustituye la revisión del docente.",
+  "comprobaciones": [
+    {
+      "comprobacion": "PDF SGA de una página",
+      "estado": "PASS",
+      "detalle": "1 página(s)"
+    },
+    {
+      "comprobacion": "URL SGA íntegra en una línea",
+      "estado": "PASS",
+      "detalle": "Se comprueba un único elemento de texto con la URL completa."
+    },
+    {
+      "comprobacion": "Extensión de contenido",
+      "estado": "PASS",
+      "detalle": "12 páginas totales; 9 páginas completas entre carátula y comienzo de referencias. No se cuentan referencias ni anexos."
+    },
+    {
+      "comprobacion": "Resumen entre 150 y 200 palabras",
+      "estado": "PASS",
+      "detalle": "170 palabras por separación de espacios."
+    },
+    {
+      "comprobacion": "Bibliografía con Biber e IEEE",
+      "estado": "PASS",
+      "detalle": "Comprobación de configuración LaTeX; no verifica metadatos ni calidad de citas."
+    },
+    {
+      "comprobacion": "Claves de cita existentes",
+      "estado": "PASS",
+      "detalle": "Todas las claves citadas existen en el .bib."
+    },
+    {
+      "comprobacion": "Cantidad de fuentes citadas",
+      "estado": "PASS",
+      "detalle": "12 claves distintas citadas; este conteo no acredita veracidad."
+    },
+    {
+      "comprobacion": "Tres artículos candidatos de revista",
+      "estado": "PASS",
+      "detalle": {
+        "cantidad": 3,
+        "claves": [
+          "henning2024scalability",
+          "raptis2023survey",
+          "raptis2024partitioning"
+        ],
+        "limite": "Tipo declarado en BibLaTeX. Indexación, DOI y lectura requieren verificación adicional."
+      }
+    },
+    {
+      "comprobacion": "Verificación de DOI",
+      "estado": "PASS",
+      "detalle": [
+        {
+          "clave": "raptis2023survey",
+          "estado": "METADATOS_Y_REDIRECCION_OK"
+        },
+        {
+          "clave": "raptis2024partitioning",
+          "estado": "METADATOS_Y_REDIRECCION_OK"
+        },
+        {
+          "clave": "henning2024scalability",
+          "estado": "METADATOS_Y_REDIRECCION_OK"
+        },
+        {
+          "clave": "vogel2024recovery",
+          "estado": "METADATOS_Y_REDIRECCION_OK"
+        },
+        {
+          "clave": "chen2026tuning",
+          "estado": "METADATOS_Y_REDIRECCION_OK"
+        }
+      ]
+    },
+    {
+      "comprobacion": "Indexación corroborada de tres revistas",
+      "estado": "PASS",
+      "detalle": {
+        "revistas": [
+          "IEEE Access",
+          "Future Generation Computer Systems",
+          "Journal of Systems and Software"
+        ],
+        "limite": "IEEE: editorial; dos Elsevier: fuente secundaria SCImago basada en Scopus. No acredita lectura personal."
+      }
+    },
+    {
+      "comprobacion": "Capturas de ejecución",
+      "estado": "PENDIENTE",
+      "detalle": {
+        "archivos_presentes": 0,
+        "mínimo": 4,
+        "archivos": [],
+        "limite": "La presencia de imágenes no prueba originalidad ni autoría; hace falta revisión personal."
+      }
+    },
+    {
+      "comprobacion": "Capturas de artículos anotados",
+      "estado": "PENDIENTE",
+      "detalle": {
+        "archivos_presentes": 0,
+        "mínimo": 3,
+        "archivos": [],
+        "limite": "La presencia de imágenes no prueba originalidad ni autoría; hace falta revisión personal."
+      }
+    },
+    {
+      "comprobacion": "Fotografía del bosquejo",
+      "estado": "PENDIENTE",
+      "detalle": {
+        "archivos_presentes": 0,
+        "mínimo": 1,
+        "archivos": [],
+        "limite": "La presencia de imágenes no prueba originalidad ni autoría; hace falta revisión personal."
+      }
+    },
+    {
+      "comprobacion": "Ejecución personal registrada",
+      "estado": "PENDIENTE",
+      "detalle": {
+        "corridas_declaradas_estudiante": [],
+        "limite": "La etiqueta de operador no acredita por sí sola autoría personal."
+      }
+    },
+    {
+      "comprobacion": "Historial progresivo",
+      "estado": "PENDIENTE",
+      "detalle": {
+        "commits_totales": 2,
+        "días_locales": [
+          "2026-11-13"
+        ],
+        "limite": "Se necesitan al menos ocho commits en tres días y verificar autoría real del estudiante; no se reescribe el historial."
+      }
+    },
+    {
+      "comprobacion": "Revisión de requisitos restantes",
+      "estado": "PENDIENTE",
+      "detalle": [
+        "Revisar disponibilidad de Kafka y registrar la elección en el foro SGA. No se accedió al foro ni se registró el tema.",
+        "Confirmar entrega de FORM-FB-01 en SGA. Se observan los archivos en el repositorio compartido; eso no prueba entrega formal.",
+        "Localizar y confirmar FORM-AC-01. El PDF aportado describe un diseño bancario, no acredita un análisis de incidente real. Solo el docente puede confirmar una equivalencia.",
+        "Confirmar plazo y zona horaria en SGA: la consigna dice 15 de noviembre de 2026, 23:55.",
+        "Completar la lectura integral de los dos artículos de Raptis; no se obtuvo su texto completo. Las páginas editoriales y repositorios todavía presentan limitaciones automatizadas de acceso.",
+        "Leer las fuentes y hacer tres capturas originales anotadas, con página y relación explícita con citas del texto.",
+        "Hacer y fotografiar un bosquejo personal a mano con nombre y fecha. Revisar/redibujar el diagrama digital; el actual fue preparado por IA.",
+        "Ejecutar personalmente el laboratorio, conservar resultados identificados y obtener cuatro capturas originales. Las corridas ya incluidas son del asistente.",
+        "Validar o sustituir los escenarios ilustrativos de WhatsApp y SGA con experiencias reales del estudiante. Los ejemplos generales ya están redactados, pero no se presentan como observaciones personales.",
+        "Revisar y explicar el texto; verificar cada argumento y declarar la asistencia real. Se trata de un borrador, no una entrega independiente terminada.",
+        "Registrar bitácora de cada sesión personal y cumplir tres días reales y ocho commits descriptivos propios. No se ha fabricado ese historial.",
+        "Grabar video de 3–5 minutos con rostro y voz explicando una captura y conclusión sin leer. Añadir enlace público/no listado al README.",
+        "Incorporar y publicar las evidencias y correcciones restantes antes del cierre.",
+        "Tras completar lo anterior, subir únicamente el PDF `entrega-sga.pdf` de una página al SGA. No se realizó ninguna entrega en SGA."
+      ]
+    }
+  ]
+}

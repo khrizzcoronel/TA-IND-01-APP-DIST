@@ -1,0 +1,38 @@
+{
+  "consulta_utc": "2026-11-14T01:46:18.813364+00:00",
+  "lecturas": [
+    {
+      "clave": "henning2024",
+      "doi_publicacion": "10.1016/j.jss.2023.111879",
+      "url_lectura": "https://arxiv.org/pdf/2303.11088v2",
+      "version": "2303.11088v2",
+      "archivo_local": "/workspace/lecturas-ta-ind/henning2024.pdf",
+      "sha256": "4851731299f208e3172339f360aa343a90533d96f0281a0203ea1c985a2c98e1",
+      "bytes": 25972637,
+      "operador_lectura": "asistente-IA",
+      "limite": "La lectura del asistente no acredita lectura personal del estudiante; paginación del manuscrito, no necesariamente la editorial."
+    },
+    {
+      "clave": "vogel2024",
+      "doi_publicacion": "10.1145/3629104.3666040",
+      "url_lectura": "https://arxiv.org/pdf/2404.06203v3",
+      "version": "2404.06203v3",
+      "archivo_local": "/workspace/lecturas-ta-ind/vogel2024.pdf",
+      "sha256": "f6e3b226bf8e57fe58bd4b9f2ce19fced780247d85f0a5005b1df30dec225999",
+      "bytes": 4231333,
+      "operador_lectura": "asistente-IA",
+      "limite": "La lectura del asistente no acredita lectura personal del estudiante; paginación del manuscrito, no necesariamente la editorial."
+    },
+    {
+      "clave": "chen2026",
+      "doi_publicacion": "10.1145/3777911.3800636",
+      "url_lectura": "https://arxiv.org/pdf/2603.04027v1",
+      "version": "2603.04027v1",
+      "archivo_local": "/workspace/lecturas-ta-ind/chen2026.pdf",
+      "sha256": "9a0f3a2f14b9eb2f6b173932e90333c510020c3b4f647b41d13d7148f18d2bcf",
+      "bytes": 1674776,
+      "operador_lectura": "asistente-IA",
+      "limite": "La lectura del asistente no acredita lectura personal del estudiante; paginación del manuscrito, no necesariamente la editorial."
+    }
+  ]
+}

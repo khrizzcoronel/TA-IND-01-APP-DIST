@@ -4,19 +4,20 @@
 - [ ] Confirmar entrega de FORM-FB-01 en SGA. Se observan los archivos en el repositorio compartido; eso no prueba entrega formal.
 - [ ] Localizar y confirmar FORM-AC-01. El PDF aportado describe un diseño bancario, no acredita un análisis de incidente real. Solo el docente puede confirmar una equivalencia.
 - [ ] Confirmar plazo y zona horaria en SGA: la consigna dice 15 de noviembre de 2026, 23:55.
-- [ ] Verificar todos los DOI y metadatos. El intento automático de esta sesión fue bloqueado por HTTP 403; no se afirma que las fuentes estén verificadas aquí. Revisar también indexación de las tres revistas.
+- [x] Verificar los cinco DOI: metadatos completos y destinos coinciden con Crossref. Indexación corroborada de IEEE Access por editorial y de las dos revistas Elsevier por SCImago/Scopus; ver JSON de fuentes.
+- [ ] Completar la lectura integral de los dos artículos de Raptis; no se obtuvo su texto completo. Las páginas editoriales y repositorios todavía presentan limitaciones automatizadas de acceso.
 - [ ] Leer las fuentes y hacer tres capturas originales anotadas, con página y relación explícita con citas del texto.
-- [ ] Incorporar una organización usuaria de Kafka y su escala con documentación primaria.
-- [ ] Incorporar un incidente real documentado de Kafka: causa, impacto, recuperación y vínculo con los mecanismos analizados.
+- [x] Incorporar uso de Kafka por Grab y escala TB/hour mediante su testimonio alojado en el sitio oficial de Apache Kafka; se atribuye la cifra y se indica su alcance.
+- [x] Analizar el fallo real reportado en kafka-go, issue 1358: cronología, versiones, impacto declarado en producción, diagnóstico y mitigaciones propuestas. Se deja explícito que no hay recuperación medida confirmada ni post mortem corporativo.
 - [ ] Hacer y fotografiar un bosquejo personal a mano con nombre y fecha. Revisar/redibujar el diagrama digital; el actual fue preparado por IA.
 - [ ] Ejecutar personalmente el laboratorio, conservar resultados identificados y obtener cuatro capturas originales. Las corridas ya incluidas son del asistente.
-- [ ] Sustituir los dos ejemplos pendientes por experiencias reales del estudiante, distinguiendo observaciones de inferencias.
+- [ ] Validar o sustituir los escenarios ilustrativos de WhatsApp y SGA con experiencias reales del estudiante. Los ejemplos generales ya están redactados, pero no se presentan como observaciones personales.
 - [ ] Revisar y explicar el texto; verificar cada argumento y declarar la asistencia real. Se trata de un borrador, no una entrega independiente terminada.
 - [ ] Registrar bitácora de cada sesión personal y cumplir tres días reales y ocho commits descriptivos propios. No se ha fabricado ese historial.
 - [ ] Grabar video de 3–5 minutos con rostro y voz explicando una captura y conclusión sin leer. Añadir enlace público/no listado al README.
 - [x] Publicar el borrador en `main`; GitHub muestra etiqueta Public.
 - [ ] Incorporar y publicar las evidencias y correcciones restantes antes del cierre.
-- [ ] Recompilar desde una copia limpia; comprobar cinco páginas de contenido y resumen 150–200 palabras.
+- [x] Recompilar desde una copia limpia; el PDF tiene doce páginas y supera cinco de contenido; resumen de 170 palabras. Repetir si se modifica el informe.
 - [ ] Tras completar lo anterior, subir únicamente el PDF `entrega-sga.pdf` de una página al SGA. No se realizó ninguna entrega en SGA.
 
 El documento sigue marcado como borrador mientras queden requisitos obligatorios. No quitar esas advertencias para aparentar que las evidencias existen.
